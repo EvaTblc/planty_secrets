@@ -5,6 +5,7 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
 
   has_many :user_plants
+  has_many :plants, through: :user_plants
   has_many :favorites
 
   has_one_attached :photo
