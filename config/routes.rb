@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :profile, only: [ :index, :show ]
 
-  resources :plants, only: [ :new, :show ] do
+  resources :plants, only: [ :index, :new, :show ] do
     collection do
       get :map
     end
