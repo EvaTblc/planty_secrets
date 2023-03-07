@@ -5,5 +5,5 @@ class Plant < ApplicationRecord
 
   has_one_attached :photo
 
-  validates :name, :species, presence: true
+  # validates :name, :species, presence: true
 end
