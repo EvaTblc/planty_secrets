@@ -8,14 +8,22 @@ class PlantsController < ApplicationController
     response = HTTParty.post(urlapi,
                               body: { images: File.new(params[:plant][:photo].tempfile) },
                               headers: { 'accept' => 'application/json' })
-    # raise
+
     # idapi = Nom scientifique de la plante // Si l'idapi existe en DB = pas de save, s'il n'existe pas = il save en DB
+    list = response["results"]
+    @top = list.first(5)
+
     @plant = Plant.find_or_create_by(idapi: response["results"][0]["species"]["scientificNameWithoutAuthor"]) do |plant|
       plant.name = response["results"][0]["species"]["commonNames"][0]
       plant.species = response["results"][0]["species"]["family"]["scientificNameWithoutAuthor"]
       plant.assign_attributes(params_plant)
     end
-    @plant.save
+
+  #   if @plant.save
+  #     @top.each do |plant|
+  #       plant["species"]["commonNames"]
+  #     end
+  #   end
   end
 
   private
