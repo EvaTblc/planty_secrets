@@ -4,7 +4,7 @@ class PlantsController < ApplicationController
   end
 
   def create
-    urlapi = "https://my-api.plantnet.org/v2/identify/all?include-related-images=true&no-reject=false&lang=fr&api-key=2b10alQZ3Bo1cji0jFGQg0EIUu"
+    urlapi = "https://my-api.plantnet.org/v2/identify/all?include-related-images=true&no-reject=false&lang=fr&"
     response = HTTParty.post(urlapi,
                               body: { images: File.new(params[:plant][:photo].tempfile) },
                               headers: { 'accept' => 'application/json' })
