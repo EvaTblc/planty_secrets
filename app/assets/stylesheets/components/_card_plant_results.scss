@@ -1,23 +1,31 @@
-.plant-row {
+.results-row {
   display: flex;
   height:35%;
   width: 100%;
 }
-.plant-card {
+.results-card {
   width: 250px;
-  height:100%;
+  height:150px;
   margin: 5px;
   border-radius: 10px;
 }
-.plant-img {
+
+.results-card a,
+.results-card .results-image {
   width: 100%;
-  height: 150px;
+  height:100%;
+}
+
+.results-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
-.plant-title {
+
+.results-title {
   font-size: 10px;
 }
-.plant-text {
+.results-text {
   font-size: 8px;
 }
 
