@@ -1,0 +1,44 @@
+<h1>Découvrez de nouvelles plantes</h1>
+
+<div class="mt-5 mb-5">
+    <%= form_with url: plants_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Cherchez votre plante..."
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary", id: "color-white" %>
+    <% end %>
+  </div>
+
+<h2>Latest search...</h2>
+<div class="plant-row">
+    <% @plants.each do |plant| %>
+      <%= link_to plant_path(plant) do %>
+        <div class="card plant-card">
+          <%= cl_image_tag plant.photo.key, class: "plant-img"%>
+          <div class="card-body plant-body">
+            <h2 class="card-title plant-title"><%= plant.name %></h2>
+            <p class="card-text plant-text">France</p>
+            <p class="card-text plant-text plant-heart">❤️❤️❤️❤️🤍</p>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+</div>
+
+<h2>Favorites</h2>
+<div class="plant-row">
+  <% @favorites.each do |favorite| %>
+    <%= link_to plant_path(favorite) do %>
+      <div class="card plant-card">
+        <%= cl_image_tag favorite.photo.key, class: "plant-img"%>
+        <div class="card-body plant-body">
+          <h2 class="card-title plant-title"><%= favorite.name %></h2>
+          <p class="card-text plant-text">France</p>
+          <p class="card-text plant-heart">❤️❤️❤️❤️❤️</p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -3,7 +3,12 @@ class Plant < ApplicationRecord
   has_many :user_plants
   has_many :users, through: :user_plants
 
-  has_one_attached :photo
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+    against: [:name],
+    using: {
+      tsearch: { prefix: true }
+    }
 
-  # validates :name, :species, presence: true
+  has_one_attached :photo
 end

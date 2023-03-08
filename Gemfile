@@ -23,6 +23,7 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "cloudinary"
 gem "httparty"
+gem "pg_search"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]

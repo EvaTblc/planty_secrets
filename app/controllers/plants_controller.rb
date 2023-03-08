@@ -1,4 +1,13 @@
 class PlantsController < ApplicationController
+  def index
+    if params[:query].present?
+      @plants = Plant.search_by_name(params[:query])
+    else
+      @plants = current_user.plants
+    end
+    @favorites = current_user.plants.includes(:user_plants).where(user_plants: { favorite: true } )
+  end
+
   def new
     @plant = Plant.new
   end
