@@ -22,42 +22,40 @@ class PlantsController < ApplicationController
                               headers: { 'accept' => 'application/json' })
 
     # idapi = Nom scientifique de la plante // Si l'idapi existe en DB = pas de save, s'il n'existe pas = il save en DB
-
-
     @plant = Plant.find_or_create_by(idapi: response["results"][0]["species"]["scientificNameWithoutAuthor"]) do |plant|
       plant.name = response["results"][0]["species"]["commonNames"][0]
       plant.species = response["results"][0]["species"]["family"]["scientificNameWithoutAuthor"]
       plant.assign_attributes(params_plant)
     end
+    # binding.pry
+    photo_user = @plant.photo.key
 
-      list = response["results"]
-      five = list.first(5)
+    five = response["results"].first(5)
 
-      @top = []
-      five.each do |plant|
-        new_plant = Plant.create!(idapi: plant["species"]["scientificNameWithoutAuthor"], name: plant["species"]["commonNames"][0], species: plant["species"]["family"]["scientificNameWithoutAuthor"])
-        file = URI.open(plant["images"][0]["url"]["o"])
-        new_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
-        new_plant.save
-        @top << new_plant
+    @top = []
+    five.each do |plant|
+      new_plant = Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |plant|
+        plant.name = plant["species"]["commonNames"][0],
+        plant.species = plant["species"]["family"]["scientificNameWithoutAuthor"],
+        plant.score = ((plant["score"] * 100) / 1)
       end
+      file = URI.open(plant["images"][0]["url"]["o"])
+      new_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
+      new_plant.save
+      @top << new_plant
+    end
 
     if @plant.save
-      redirect_to results_plants_path(top: @top)
+      redirect_to results_plants_path(top: @top, photo: photo_user)
     else
       render :create, status: :unprocessable_entity
     end
   end
 
   def results
-    @results = params[:top]
+    @photo = params[:photo]
 
-    @resultstop = []
-    @results.map do |plant|
-      top5 = Plant.find(plant)
-      @resultstop << top5
-    end
-
+    @resultstop = Plant.where(id: params[:top])
   end
 
   def show
