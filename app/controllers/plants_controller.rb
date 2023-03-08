@@ -51,6 +51,10 @@ class PlantsController < ApplicationController
 
   end
 
+  def show
+    @plant = Plant.find(params[:id])
+  end
+
   private
 
   def params_plant
