@@ -114,9 +114,9 @@ camomille.photo.attach(io: file, filename: "camomille.jpg", content_type: "image
 
 puts "Associate user & flowers"
 
-userplants1 = UserPlant.create!(user: chantal, plant: aubepine, favorite: true)
+userplants1 = UserPlant.create!(user: chantal, plant: aubepine, favorite: false)
 userplants2 = UserPlant.create!(user: chantal, plant: dionee, favorite: true)
-userplants3 = UserPlant.create!(user: chantal, plant: cepesdebordeaux, favorite: true)
+userplants3 = UserPlant.create!(user: chantal, plant: cepesdebordeaux, favorite: false)
 userplants4 = UserPlant.create!(user: chantal, plant: agave, favorite: true)
 userplants5 = UserPlant.create!(user: chantal, plant: camomille, favorite: true)
 
