@@ -1,6 +1,10 @@
+<div class="banner" style="background-image: url(<%= cl_image_path @photo %> );">
+  <div class="container">
+    <h2> Ta Planty ressemble à </h2>
+  </div>
+</div>
+
 <div class="container">
-  <h1>RESULTS</h1>
-  <%# <div class="plant-row"></div> %>
     <div class="cards">
       <% @resultstop.each do |plant| %>
         <div class="card results-card">
@@ -10,12 +14,13 @@
             <% else %>
               <p>No photo</p>
             <% end %>
-            <div class="card-body">
+            <div class="results-body">
               <div class="results-title">
                 <%= plant.name %>
               </div>
               <div class="results-text">
                 <%= plant.species %>
+                <p><%= plant.score %>%</p>
               </div>
             </div>
           <% end %>
