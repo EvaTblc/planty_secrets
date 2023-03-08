@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
 .banner {
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -26,5 +26,12 @@
 
   .btn {
     padding: 15px 50px;
+  }
+
+  .title-img {
+    width: 35%;
+    height: auto;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $white;
   }
 }
