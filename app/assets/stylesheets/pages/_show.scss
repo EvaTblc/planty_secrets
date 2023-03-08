@@ -1,0 +1,32 @@
+.plant-photo {
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+  z-index : -1;
+  top:0;
+  position: absolute;
+}
+
+.plant-name {
+  z-index : 1;
+  color:white;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.plant-card-show {
+  background-color: white;
+  border-radius: 40px;
+  height: 382px;
+  left:0;
+  right:0;
+  top: 429px;
+  position: absolute;
+}
+
+.trait_dessus {
+  border-top: 8px solid $pale-gray;
+  width : 70px;
+  margin: auto;
+  margin-top: 20px;
+}
