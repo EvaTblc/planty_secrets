@@ -1,5 +1,5 @@
-<div>
-  <div class="plant-photo" style="background-image: url(<%= cl_image_path @plant.photo.key %>)">
+<div data-controller="map-show">
+  <div class="plant-photo" style="background-image: url(<%= cl_image_path @plant.photo.key %>)", data-map-show-target="plant">
 
     <%= link_to plants_path, class:"btn-go-back" do %>
       <i class="fa-solid fa-chevron-left"></i>
@@ -8,19 +8,41 @@
       <h1 class="text-center plant-name"><%= @plant.name %></h1>
   </div>
 
+  <div class="map-photo d-none", data-map-show-target="map", style="background-image: url('../../assets/images/map.jpg')"></div>
+
   <div class="plant-card-show">
     <div class="trait_dessus"></div>
     <div class="ms-4 mt-3">
       <h1><%= @plant.name %></h1>
       <p><%= @plant.idapi %></p>
     </div>
+
     <div class="btn-choose-show mt-4">
-      <div class="btns-choose-show">
-        <div><p class="me-3">Facts</p></div>
-        <div><p class="me-3">Medecine</p></div>
-        <div><p>Where?</p></div>
-      </div>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" data-action="click->map-show#displaynone">Infos</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" data-action="click->map-show#displaynone">Médecine</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" data-action="click->map-show#display">Trouver</button>
+          </li>
+        </ul>
+    </div>
+    <div class="tab-content ms-4 mt-3" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+          <h4 class="mt-4">Description</h4>
+          <p class="me-2">Lorem ipsum dolor sit amet consectetur. Commodo blandit mi urna ullamcorper porttitor cursus risus. Amet mi aliquet pharetra sed bibendum mi.</p>
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+          <h4 class="mt-4">Propriétés médicinales</h4>
+          <p class="me-2">Lorem ipsum dolor sit amet consectetur. Commodo blandit mi urna ullamcorper porttitor cursus risus. Amet mi aliquet pharetra sed bibendum mi.</p>
+        </div>
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+          <h4 class="mt-4">Où trouver cette plante?</h4>
+          <p class="me-2">Lorem ipsum dolor sit amet consectetur. Commodo blandit mi urna ullamcorper porttitor cursus risus. Amet mi aliquet pharetra sed bibendum mi.</p>
+        </div>
     </div>
   </div>
-
 </div>
