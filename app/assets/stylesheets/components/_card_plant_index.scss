@@ -1,12 +1,13 @@
 .plant-row {
   display: flex;
+  flex-direction: row;
   height:35%;
-  width: 100%;
+  width: max-content;
   margin:10px;
 }
 
 .plant-card {
-  width: 250px;
+  width: 175px;
   height:100%;
   margin: 5px;
   border-radius: 10px;
@@ -21,16 +22,25 @@
 .plant-body {
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 .plant-title {
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .plant-text {
-  font-size: 8px;
+  font-size: 10px;
+  margin: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .plant-heart {
-  font-size: 5px;
+  font-size: 10px;
+}
+
+.latest-research-container {
+  overflow: scroll;
+  width: 100vw;
 }
