@@ -7,11 +7,22 @@
   position: absolute;
 }
 
+.map-photo {
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+  z-index : -1;
+  top:0;
+  position: absolute;
+}
+
 .plant-name {
   z-index : 1;
   color:white;
   margin: auto;
-  margin-top: 20px;
+  padding-top: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  padding-bottom:20px;
 }
 
 .plant-card-show {

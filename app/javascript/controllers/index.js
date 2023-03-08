@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import MapShowController from "./map_show_controller"
+application.register("map-show", MapShowController)
