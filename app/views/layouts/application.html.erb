@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>PlantySecrets</title>
+    <link rel="icon" type="image/png" href="logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,10 +12,8 @@
   </head>
 
   <body>
-  <div style="height: 100vh">
     <%= render "shared/flashes" %>
     <%= yield %>
-  </div>
     <%= render "shared/navbar"%>
   </body>
 </html>
