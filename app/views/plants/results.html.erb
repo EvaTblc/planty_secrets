@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>RESULTS</h1>
+    <div class="cards">
+      <% @resultstop.each do |plant| %>
+          <%= link_to plant_path(plant)do %>
+            <% if plant.photo.attached? %>
+              <div class="plant-img"><%= cl_image_tag plant.photo.key %></div>
+            <% else %>
+              <p>No photo</p>
+            <% end %>
+              <div class="plant-title">
+                <%= plant.name %>
+              </div>
+              <div class="plant-text">
+                <%= plant.species %>
+              </div>
+              <%# <div class="plant-img">
+                <%= cl_image_tag plant.photo.key%>
+              <%# </div> %>
+          <% end %>
+      <% end %>
+    </div>
+      <%= link_to "Back create", new_plant_path %>
+</div>
