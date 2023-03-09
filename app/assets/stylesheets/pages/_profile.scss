@@ -2,3 +2,29 @@
   font-size: 15px;
   color: $pale-green;
 }
+
+.info-user {
+  margin-top: 30px;
+}
+
+.grille-infos {
+  border-top: 2px solid $pale-gray;
+  border-bottom: 2px solid $pale-gray;
+  height: 80px;
+  width: 126px;
+  color: $dark-green;
+  .text-infos {
+    margin-top: -6px;
+  }
+}
+
+.list-allfavorites {
+  margin-top: 30px;
+  border-bottom: 2px solid $pale-gray;
+  p {
+    margin-bottom: 5px;
+  }
+  .favorites {
+    color: $pale-green;
+  }
+}

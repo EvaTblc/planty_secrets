@@ -15,47 +15,24 @@ class PlantsController < ApplicationController
   end
 
   def create
-    api_key = "api-key=2b10alQZ3Bo1cji0jFGQg0EIUu"
-    urlapi = "https://my-api.plantnet.org/v2/identify/all?include-related-images=true&no-reject=false&lang=fr&#{api_key}"
-    response = HTTParty.post(urlapi,
-                              body: { images: File.new(params[:plant][:photo].tempfile)},
-                              headers: { 'accept' => 'application/json' })
-
-    # idapi = Nom scientifique de la plante // Si l'idapi existe en DB = pas de save, s'il n'existe pas = il save en DB
-    @plant = Plant.find_or_create_by(idapi: response["results"][0]["species"]["scientificNameWithoutAuthor"]) do |plant|
-      plant.name = response["results"][0]["species"]["commonNames"][0]
-      plant.species = response["results"][0]["species"]["family"]["scientificNameWithoutAuthor"]
-      plant.assign_attributes(params_plant)
-    end
-    # binding.pry
-    photo_user = @plant.photo.key
-
+    response = plantnet_api
     five = response["results"].first(5)
-
     @top = []
-
     five.each do |plant|
-      new_plant = Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |user_plant|
+      Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |user_plant|
         user_plant.name = plant["species"]["commonNames"][0],
-        user_plant.species = plant["species"]["family"]["scientificNameWithoutAuthor"],
+        user_plant.species = plant["species"]["scientificNameWithoutAuthor"],
         user_plant.score = ((plant["score"] * 100) / 1)
+        file = URI.open(plant["images"][0]["url"]["o"])
+        user_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
+        user_plant.save
+        @top << user_plant.id
       end
-      file = URI.open(plant["images"][0]["url"]["o"])
-      new_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
-      new_plant.save
-      @top << new_plant
     end
-
-    if @plant.save
-      redirect_to results_plants_path(top: @top, photo: photo_user)
-    else
-      render :create, status: :unprocessable_entity
-    end
+    redirect_to results_plants_path(top: @top)
   end
 
   def results
-    @photo = params[:photo]
-
     @resultstop = Plant.where(id: params[:top])
   end
 
@@ -67,5 +44,12 @@ class PlantsController < ApplicationController
 
   def params_plant
     params.require(:plant).permit(:photo, :top)
+  end
+
+  def plantnet_api
+    urlapi = "https://my-api.plantnet.org/v2/identify/all?include-related-images=true&no-reject=false&lang=fr&api-key=#{ENV['PLANTNET_API_KEY']}"
+    HTTParty.post(urlapi,
+                  body: { images: File.new(params[:plant][:photo].tempfile)},
+                  headers: { 'accept' => 'application/json' })
   end
 end

@@ -1,17 +1,73 @@
 <div class="container">
 
-  <div class="info-user d-flex justify-content-start mt-5 ms-4">
-    <img src="<%= cl_image_path @user.photo.key %>" class="avatar-large" alt="avatar-large" />
-
-    <div class="d-flex flex-column justify-content-center ms-3">
-      <h2><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h2>
-      <h3 class="username">@<%= @user.username %></h3>
+  <div class="bloc-user d-flex justify-content-start mt-5 ms-4">
+    <img src="<%= cl_image_path current_user.photo.key %>" class="avatar-large" alt="avatar-large" />
+    <div class="info-user d-flex flex-column justify-content-center ms-3">
+      <h2><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h2>
+      <h3 class="username">@<%= current_user.username %></h3>
     </div>
-
-    <div class="icon-edit d-flex justify-content-center align-items-center pb-5 ms-2">
+    <div class="info-user icon-edit d-flex justify-content-center align-items-center pb-5 ms-2">
       <i class="fa-regular fa-pen-to-square"></i>
     </div>
-    <%= @plants.plants.all %>
   </div>
+
+  <div class="infos-chiffre d-flex mt-4 justify-content-center">
+    <div class="d-flex flex-column ">
+      <div class="grille-infos">
+        <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+          <h4><%= @plants.count %></h4>
+          <h5 class="text-infos"><%= @plants.count > 1 ? "Recherche".pluralize : "Recherche" %></h5>
+        </div>
+      </div>
+    </div>
+      <div class="d-flex flex-column">
+        <div class="grille-infos">
+          <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+            <h4><%= @favorites.count %></h4>
+            <h5 class="text-infos"><%= @favorites.count > 1 ? "Favori".pluralize : "Favori" %></h5>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column">
+        <div class="grille-infos">
+          <div class="d-flex flex-column justify-content-center align-items-center mt-3">
+            <i class="fa-solid fa-map-location-dot justify-content-center mb-1"></i>
+            <h5 class="mt-2">Ma carte</h5>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="list-allfavorites d-flex justify-content-center align-items-center">
+    <p class="list me-5">Listes</p>
+    <p class="favorites ms-5"><strong>Tous mes favoris</strong></p>
+  </div>
+
+    <div class="mt-4 mb-4 favorites-formulaire">
+    <%= form_with url: profile_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Cherchez votre plante favorite..."
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary", id: "color-white" %>
+    <% end %>
+  </div>
+    <h2> Plantes favorites 🪴 </h2>
+    <div class="latest-research-container">
+      <div class="plant-row">
+        <% @favorites.each do |favorite| %>
+          <%= link_to plant_path(favorite) do %>
+            <div class="card plant-card">
+              <%= cl_image_tag favorite.photo.key, class: "plant-img"%>
+              <div class="card-body plant-body">
+                <h3 class="card-title plant-title"><%= favorite.name %></h3>
+                <p class="card-text plant-text">France</p>
+                <p class="card-text plant-heart">❤️❤️❤️❤️❤️</p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
 </div>
