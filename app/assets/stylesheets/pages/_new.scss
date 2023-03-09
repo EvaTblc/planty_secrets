@@ -1,0 +1,26 @@
+.background-image-new {
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  z-index : -1;
+  top:0;
+  position: absolute;
+}
+
+.photo-card-new {
+  background-color: white;
+  border-radius: 40px;
+  height: auto;
+  left:0;
+  right:0;
+  top: 300px;
+  position: absolute;
+}
+
+.container-form {
+  margin: 10px;
+  background-color: white;
+  box-shadow: 0px 8px 20px rgba(214, 211, 192, 0.4);
+  border-radius: 28px;
+  padding: 20px;
+}

@@ -34,10 +34,10 @@ class PlantsController < ApplicationController
 
     @top = []
     five.each do |plant|
-      new_plant = Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |plant|
-        plant.name = plant["species"]["commonNames"][0],
-        plant.species = plant["species"]["family"]["scientificNameWithoutAuthor"],
-        plant.score = ((plant["score"] * 100) / 1)
+      new_plant = Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |user_plant|
+        user_plant.name = plant["species"]["commonNames"][0],
+        user_plant.species = plant["family"]["scientificNameWithoutAuthor"],
+        user_plant.score = ((plant["score"] * 100) / 1)
       end
       file = URI.open(plant["images"][0]["url"]["o"])
       new_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
