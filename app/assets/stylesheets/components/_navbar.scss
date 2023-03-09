@@ -1,14 +1,17 @@
 .footer-container {
+  background-color: $pale-green;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin: 2px;
   padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 15px #00000040;
 }
 .navbar-lewagon {
   background: $white;
-  border: #BBBBBB 1px solid;
   box-shadow: 0px 16px 32px rgba(194, 191, 172, 0.6);
   margin: none;
 }
@@ -31,12 +34,13 @@
   font-size: 20px;
   margin: 0;
     & p {
-      color: $black;
+      color: $white;
       font-size: 8px;
       margin: 0;
     }
 }
 
 .icon{
-  color: $black;
+  color: $white;
+  font-size: 30px;
 }

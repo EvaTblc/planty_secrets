@@ -1,12 +1,13 @@
 .flash {
   padding: 16px 24px;
+  font-size: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: white;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   border-radius: 8px;
-  margin: 8px;
+  margin-bottom: 55px;
 }
 
 .flash-success {
@@ -14,5 +15,5 @@
 }
 
 .flash-danger {
-  border: 2px solid #FD1015;
+  border: 2px solid $red;
 }
