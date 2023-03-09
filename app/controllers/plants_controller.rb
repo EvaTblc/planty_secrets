@@ -18,7 +18,7 @@ class PlantsController < ApplicationController
     api_key = "api-key=2b10alQZ3Bo1cji0jFGQg0EIUu"
     urlapi = "https://my-api.plantnet.org/v2/identify/all?include-related-images=true&no-reject=false&lang=fr&#{api_key}"
     response = HTTParty.post(urlapi,
-                              body: { images: File.new(params[:plant][:photo].tempfile) },
+                              body: { images: File.new(params[:plant][:photo].tempfile)},
                               headers: { 'accept' => 'application/json' })
 
     # idapi = Nom scientifique de la plante // Si l'idapi existe en DB = pas de save, s'il n'existe pas = il save en DB
@@ -34,7 +34,8 @@ class PlantsController < ApplicationController
 
     @top = []
     five.each do |plant|
-      new_plant = Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |plant|
+
+      new_plant = Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |user_plant|
         user_plant.name = plant["species"]["commonNames"][0],
         user_plant.species = plant["species"]["family"]["scientificNameWithoutAuthor"],
         user_plant.score = ((plant["score"] * 100) / 1)
