@@ -5,14 +5,14 @@
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
 
-      <h1 class="text-center plant-name"><%= @plant.name %></h1>
+      <h1 class="text-center sticky-top plant-name"><%= @plant.name %></h1>
   </div>
 
   <div class="map-photo d-none", data-map-show-target="map", style="background-image: url('../../assets/images/map.jpg')"></div>
 
   <div class="plant-card-show">
     <div class="trait_dessus"></div>
-    <div class="ms-4 mt-3">
+    <div class="mx-4 mt-3">
       <h1><%= @plant.name %></h1>
       <p><%= @plant.idapi %></p>
     </div>
@@ -30,18 +30,18 @@
           </li>
         </ul>
     </div>
-    <div class="tab-content ms-4 mt-3" id="pills-tabContent">
+    <div class="tab-content mt-3" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
           <h4 class="mt-4">Description</h4>
-          <p class="me-2">Lorem ipsum dolor sit amet consectetur. Commodo blandit mi urna ullamcorper porttitor cursus risus. Amet mi aliquet pharetra sed bibendum mi.</p>
+          <p class="infos-scroll"><%= @plant.infos %></p>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
           <h4 class="mt-4">Propriétés médicinales</h4>
-          <p class="me-2">Lorem ipsum dolor sit amet consectetur. Commodo blandit mi urna ullamcorper porttitor cursus risus. Amet mi aliquet pharetra sed bibendum mi.</p>
+          <p class="infos-scroll"><%= @plant.medecine %></p>
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
           <h4 class="mt-4">Où trouver cette plante?</h4>
-          <p class="me-2">Lorem ipsum dolor sit amet consectetur. Commodo blandit mi urna ullamcorper porttitor cursus risus. Amet mi aliquet pharetra sed bibendum mi.</p>
+          <p class="infos-scroll"><%= @plant.trouver %></p>
         </div>
     </div>
   </div>

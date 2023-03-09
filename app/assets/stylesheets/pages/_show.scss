@@ -28,16 +28,28 @@
 .plant-card-show {
   background-color: white;
   border-radius: 40px;
-  height: 382px;
+  max-height: 350px;
   left:0;
   right:0;
-  top: 429px;
+  bottom: 0;
+  margin-bottom: 77px;
+  padding: 20px 1.5rem;
   position: absolute;
+  overflow: scroll;
 }
 
 .trait_dessus {
   border-top: 8px solid $pale-gray;
   width : 70px;
   margin: auto;
-  margin-top: 20px;
+}
+
+.plant-details-container {
+  height: 100%;
+  display: flex;
+  overflow: scroll;
+}
+
+.infos-scroll {
+  height: max-content;
 }
