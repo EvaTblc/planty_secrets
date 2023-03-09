@@ -27,7 +27,7 @@ file = File.open(Rails.root.join("db/seeds/images/plants/laurierrose.jpg"))
 laurierrose.photo.attach(io: file, filename: "laurierrose.jpg", content_type: "image/jpeg")
 # , latitude: 47.228254994354444, longitude:-1.5103718904801138
 
-lavandepapillon = Plant.create!(name: "Lavande papillon", species: "Fleur", idapi: "Lavandula Stoechas", infos: "Un feuillage gris argenté persistant et un parfum toute l’année, des fleurs bleu mauve la moitié de l’année, la lavande est une de ces plantes faciles à vivre qui peut fleurir même sous les pires canicules.", medecine: "La lavande est bien connue pour ses effets relaxants. L’usage était d’ailleurs courant d’en disposer quelques épis dans le bain pour se détendre et se préparer au sommeil. Mais c’est en usage interne principalement que l’on utilise la lavande comme anti-stress. Elle sera utilisée en cas d’irritabilité, d’insomnies, d’hyper-émotivité, d’anxiété. La lavande peut même être utilisée pour aider un bébé à dormir, en massage d’huile essentielle diluée dans de l’huile végétale.", touver: "La lavande pousse spontanément en Provence, entre 600 et 1400 mètres d’altitude. Elle y est également cultivée depuis le XIXe siècle, à l’origine pour fournir les distilleries qui la transforment en huile essentielle, un nectar ô combien précieux pour les parfumeurs. Il l’est malheureusement moins aujourd’hui, remplacé le plus souvent par des essences artificielles.")
+lavandepapillon = Plant.create!(name: "Lavande papillon", species: "Fleur", idapi: "Lavandula Stoechas", infos: "Un feuillage gris argenté persistant et un parfum toute l’année, des fleurs bleu mauve la moitié de l’année, la lavande est une de ces plantes faciles à vivre qui peut fleurir même sous les pires canicules.", medecine: "La lavande est bien connue pour ses effets relaxants. L’usage était d’ailleurs courant d’en disposer quelques épis dans le bain pour se détendre et se préparer au sommeil. Mais c’est en usage interne principalement que l’on utilise la lavande comme anti-stress. Elle sera utilisée en cas d’irritabilité, d’insomnies, d’hyper-émotivité, d’anxiété. La lavande peut même être utilisée pour aider un bébé à dormir, en massage d’huile essentielle diluée dans de l’huile végétale.", trouver: "La lavande pousse spontanément en Provence, entre 600 et 1400 mètres d’altitude. Elle y est également cultivée depuis le XIXe siècle, à l’origine pour fournir les distilleries qui la transforment en huile essentielle, un nectar ô combien précieux pour les parfumeurs. Il l’est malheureusement moins aujourd’hui, remplacé le plus souvent par des essences artificielles.")
 file = File.open(Rails.root.join("db/seeds/images/plants/lavandepapillon.jpg"))
 lavandepapillon.photo.attach(io: file, filename: "lavandepapillon.jpg", content_type: "image/jpeg")
 # , latitude: 47.10258029446564, longitude:-2.073020656482966
@@ -112,7 +112,7 @@ file = File.open(Rails.root.join("db/seeds/images/plants/camomille.jpg"))
 camomille.photo.attach(io: file, filename: "camomille.jpg", content_type: "image/jpeg")
 # , latitude: 47.9305606391601, longitude: -2.675962086913407
 
-menthe = Plant.create!(name: "Menthe", species: "Plante", idapi: "", infos: )
+menthe = Plant.create!(name: "Menthe", species: "Plante", idapi: "", infos: "")
 
 puts "Associate user & flowers"
 
