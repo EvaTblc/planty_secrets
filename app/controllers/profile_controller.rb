@@ -1,8 +1,11 @@
 class ProfileController < ApplicationController
   def show
-    @user = current_user
-    @plants = current_user.user_plants
+    @plants = current_user.plants
 
-    @user_plants = UserPlant.includes(:plant).where(plant: { user: current_user })
+    @favorites = current_user.plants.includes(:user_plants).where(user_plants: { favorite: true })
+
+
+    @favorites = @favorites.where("name ILIKE ?", "%#{params[:query]}%") if params[:query].present?
+    # FROM DESIGN TO CODE = nettoyer la search après le submit
   end
 end
