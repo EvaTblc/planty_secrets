@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class ProfileController < ApplicationController
   def show
     @user = current_user
     @plants = current_user.user_plants
