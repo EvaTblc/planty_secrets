@@ -34,6 +34,7 @@ class PlantsController < ApplicationController
 
     @top = []
     five.each do |plant|
+
       new_plant = Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |user_plant|
         user_plant.name = plant["species"]["commonNames"][0],
         user_plant.species = plant["family"]["scientificNameWithoutAuthor"],
