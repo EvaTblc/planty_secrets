@@ -1,12 +1,23 @@
+<div class="d-flex">
+  <div class="ms-3 mt-3">
+    <%= link_to new_plant_path, class:"btn btn-primary" do %>
+      <i class="fa-solid fa-chevron-left"></i>
+    <% end %>
+    </div>
+    <p class="ms-3 mt-4">Reprendre une photo</p>
+</div>
 
-  <div class="container">
-    <h2> Ta Planty ressemble à </h2>
-  </div>
+<div class="container mt-4">
+  <%# <%= cl_image_path @photo %>
+  <h2 class="text-center">🌿 Ta Planty ressemble à :</h2>
+  <p class="text-center ">Voici les résultats de ta recherche.</p>
+</div>
 
 
 <div class="container">
     <div class="cards">
       <% @resultstop.each do |plant| %>
+        <%# <% plant.sort_by {|plant| plant.score} %>
         <div class="card results-card">
           <%= link_to plant_path(plant) do %>
             <% if plant.photo.attached? %>
@@ -15,17 +26,15 @@
               <p>No photo</p>
             <% end %>
             <div class="results-body">
-              <div class="results-title">
-                <%= plant.name %>
-              </div>
-              <div class="results-text">
-                <%= plant.species %>
-                <p><%= plant.score %>%</p>
+              <h5 id="results-title"><%= plant.name %></h5>
+              <div class="results-text d-flex justify-content-between me-3">
+                <p><%= plant.species %></p>
+                <h4><%= plant.score %>% 🪴</h4>
               </div>
             </div>
           <% end %>
         </div>
       <% end %>
     </div>
-    <%= link_to "Back create", new_plant_path %>
+    <div class="p-5"></div>
 </div>

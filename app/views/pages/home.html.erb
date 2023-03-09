@@ -2,6 +2,10 @@
   <div class="banner-content text-center">
     <%= image_tag "planty-secrets-white-01.png", class: "title-img" %>
     <p>Découvrez les propriétés médicinales des plantes autour de vous</p>
-    <%= link_to "Commencer", new_user_session_path, class: "btn btn-lg btn-info"  %>
+    <% if current_user  %>
+      <%= link_to "Commencer", plants_path, class: "btn btn-lg btn-info" %>
+      <% else %>
+        <%= link_to "Connexion", new_user_session_path, class: "btn btn-lg btn-info"  %>
+      <% end %>
   </div>
 </div>
