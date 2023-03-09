@@ -33,11 +33,11 @@ class PlantsController < ApplicationController
     five = response["results"].first(5)
 
     @top = []
-    five.each do |plant|
 
+    five.each do |plant|
       new_plant = Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |user_plant|
         user_plant.name = plant["species"]["commonNames"][0],
-        user_plant.species = plant["family"]["scientificNameWithoutAuthor"],
+        user_plant.species = plant["species"]["family"]["scientificNameWithoutAuthor"],
         user_plant.score = ((plant["score"] * 100) / 1)
       end
       file = URI.open(plant["images"][0]["url"]["o"])
