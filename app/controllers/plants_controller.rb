@@ -20,12 +20,13 @@ class PlantsController < ApplicationController
     @top = []
     five.each do |plant|
       Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |user_plant|
-        user_plant.name = plant["species"]["commonNames"][0],
-        user_plant.species = plant["species"]["scientificNameWithoutAuthor"],
+        user_plant.name = plant["species"]["commonNames"][0]
+        user_plant.species = plant["species"]["scientificNameWithoutAuthor"]
         user_plant.score = ((plant["score"] * 100) / 1)
         file = URI.open(plant["images"][0]["url"]["o"])
         user_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
         user_plant.save
+        binding.pry
         @top << user_plant.id
       end
     end
