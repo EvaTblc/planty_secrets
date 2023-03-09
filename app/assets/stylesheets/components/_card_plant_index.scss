@@ -1,3 +1,10 @@
+.latest-research-container {
+  overflow: scroll;
+  width: 100vw;
+  padding-bottom: 10px;
+}
+
+
 .plant-row {
   display: flex;
   flex-direction: row;
@@ -43,12 +50,6 @@
 
 .plant-heart {
   font-size: 10px;
-}
-
-.latest-research-container {
-  overflow: scroll;
-  width: 100vw;
-  padding-bottom: 10px;
 }
 
 a {
