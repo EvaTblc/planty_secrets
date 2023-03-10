@@ -4,33 +4,25 @@
   </div>
   <h1>Découvre de nouvelles plantes!</h1>
 
-  <div class="mt-4 mb-4 formulaire">
-    <%= form_with url: plants_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Cherchez votre plante..."
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary", id: "color-white" %>
-    <% end %>
-  </div>
-
-  <h2> Dernières recherches 🌿</h2>
-  <div class="latest-research-container">
-    <div class="plant-row">
-      <% @plants.each do |plant| %>
-        <%= link_to plant_path(plant) do %>
-        <div class="card plant-card">
-          <%= cl_image_tag plant.photo.key, class: "plant-img"%>
-        <% end %>
-          <div class="card-body plant-body">
-            <h3 class="card-title plant-title"><%= plant.name %></h3>
-            <p class="card-text plant-text">France</p>
-            <i class="fas fa-heart position-icon"></i>
-          </div>
-        </div>
+  <div class="div", data-controller="index-search">
+    <div class="mt-4 mb-4 formulaire">
+      <%= form_with url: plants_path, method: :get, html: { data: {index_search_target: "form"}}, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Cherchez votre plante...",
+          data: {
+            index_search_target: "input",
+            action: "keyup->index-search#update"
+          }
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary", id: "color-white" %>
       <% end %>
     </div>
+
+    <h2> Dernières recherches 🌿</h2>
+    <div class="latest-research-container">
+      <%= render "plants/list" %>
   </div>
 
   <h2> Plantes favorites 🪴 </h2>
@@ -48,7 +40,7 @@
             </div>
           </div>
       <% end %>
-      
+
     </div>
   </div>
 </div>
