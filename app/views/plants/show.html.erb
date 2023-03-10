@@ -1,6 +1,5 @@
 <div data-controller="map-show">
   <div class="plant-photo" style="background-image: url(<%= cl_image_path @plant.photo.key %>)", data-map-show-target="plant">
-
     <%= link_to plants_path, class:"btn-go-back" do %>
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
@@ -14,6 +13,7 @@
     <div class="trait_dessus"></div>
     <div class="mx-4 mt-3">
       <h1><%= @plant.name %></h1>
+      <i class="fas fa-heart position-icon-show"></i>
       <p><%= @plant.idapi %></p>
     </div>
 
