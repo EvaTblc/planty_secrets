@@ -26,7 +26,6 @@ class PlantsController < ApplicationController
         file = URI.open(plant["images"][0]["url"]["o"])
         user_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
         user_plant.save
-        binding.pry
         @top << user_plant.id
       end
     end
