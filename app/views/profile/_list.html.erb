@@ -1,0 +1,13 @@
+  <div class="favorite-research-container", data-favorite-search-target="list">
+      <% @favorites.each do |favorite| %>
+        <%= link_to plant_path(favorite) do %>
+          <div class="card favorite-card">
+            <%= cl_image_tag favorite.photo.key, class: "favorite-img"%>
+            <div class="card-body favorite-body">
+              <h3 class="card-title favorite-title"><%= favorite.name %></h3>
+              <p class="card-text favorite-text">France</p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+  </div>

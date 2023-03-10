@@ -1,0 +1,17 @@
+{
+  "background_color": "white",
+  "description": "Venez découvrir les secrets des plantes avec Planty Secrets! Ajoutez simplement votre photo et Planty Secrets vous révélera tout de leurs propriétés, que ce soit leur localisation comme leurs vertus médicinales.",
+  "display": "fullscreen",
+  "name": "Planty-secrets",
+  "icons": [
+    <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
+    <% files.each_with_index do |file, index| %>
+      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+      {
+        "src": "<%= image_path "icons/#{file}" %>",
+        "sizes": "<%= match && match[:size] %>",
+        "type": "image/png"
+      }<%= "," unless (files.size - 1) == index %>
+    <% end %>
+  ]
+}
