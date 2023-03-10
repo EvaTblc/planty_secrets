@@ -22,17 +22,17 @@
         <%= link_to plant_path(plant) do %>
         <div class="card plant-card">
           <%= cl_image_tag plant.photo.key, class: "plant-img"%>
+        <% end %>
           <div class="card-body plant-body">
             <h3 class="card-title plant-title"><%= plant.name %></h3>
             <p class="card-text plant-text">France</p>
-            <p class="card-text plant-text plant-heart">❤️❤️❤️❤️🤍</p>
+            <i class="fas fa-heart position-icon"></i>
           </div>
         </div>
-        <% end %>
       <% end %>
     </div>
   </div>
-  
+
   <h2> Plantes favorites 🪴 </h2>
   <div class="latest-research-container">
     <div class="plant-row">
@@ -40,13 +40,13 @@
         <%= link_to plant_path(favorite) do %>
           <div class="card plant-card">
             <%= cl_image_tag favorite.photo.key, class: "plant-img"%>
+        <% end %>
             <div class="card-body plant-body">
               <h3 class="card-title plant-title"><%= favorite.name %></h3>
               <p class="card-text plant-text">France</p>
-              <p class="card-text plant-heart">❤️❤️❤️❤️❤️</p>
+              <i class="fas fa-heart position-icon"></i>
             </div>
           </div>
-        <% end %>
       <% end %>
     </div>
   </div>
