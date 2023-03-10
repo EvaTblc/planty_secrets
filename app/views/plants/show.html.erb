@@ -12,9 +12,9 @@
   <div class="plant-card-show">
     <div class="trait_dessus"></div>
     <div class="mx-4 mt-3">
-      <h1><%= @plant.name %></h1>
+      <h1 class="text-green"><%= @plant.name %></h1>
       <i class="fas fa-heart position-icon-show"></i>
-      <p><%= @plant.idapi %></p>
+      <p class="text-gray"><%= @plant.idapi %></p>
     </div>
 
     <div class="btn-choose-show mt-4">
@@ -30,17 +30,17 @@
           </li>
         </ul>
     </div>
-    <div class="tab-content mt-3" id="pills-tabContent">
+    <div class="tab-content mt-4 ms-3" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-          <h4 class="mt-4">Description</h4>
+          <h4 class="mt-4 text-green">Description</h4>
           <p class="infos-scroll"><%= @plant.infos %></p>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-          <h4 class="mt-4">Propriétés médicinales</h4>
+          <h4 class="mt-4 text-green">Propriétés médicinales</h4>
           <p class="infos-scroll"><%= @plant.medecine %></p>
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-          <h4 class="mt-4">Où trouver cette plante?</h4>
+          <h4 class="mt-4 text-green">Où trouver cette plante?</h4>
           <p class="infos-scroll"><%= @plant.trouver %></p>
         </div>
     </div>

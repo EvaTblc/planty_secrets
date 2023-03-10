@@ -17,6 +17,7 @@
           }
         %>
         <%= submit_tag "Search", class: "btn btn-primary", id: "color-white" %>
+
       <% end %>
     </div>
 
@@ -34,7 +35,7 @@
             <%= cl_image_tag favorite.photo.key, class: "plant-img"%>
         <% end %>
             <div class="card-body plant-body">
-              <h3 class="card-title plant-title"><%= favorite.name %></h3>
+              <h3 class="card-title plant-title text-green"><%= favorite.name %></h3>
               <p class="card-text plant-text">France</p>
               <i class="fas fa-heart position-icon"></i>
             </div>
