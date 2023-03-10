@@ -4,9 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["plant", "map"]
 
-  connect() {
-    console.log(this.mapTarget);
-  }
   display() {
     console.log("Hello");
     this.mapTarget.classList.remove("d-none");

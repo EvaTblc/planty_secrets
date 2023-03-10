@@ -19,7 +19,9 @@
 }
 
 .list-allfavorites {
-  margin-top: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-top: 20px;
   border-bottom: 2px solid $pale-gray;
   p {
     margin-bottom: 5px;
@@ -81,4 +83,26 @@ a {
   right: 10px;
   color: #FD77A0;
   font-size: 20px;
+}
+
+.btn-profile {
+  background-color: $middle-green !important;
+  color: $pale-gray;
+  margin-right: 10px;
+}
+
+.profile-carte {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+    h2 {
+      color: $middle-green;
+      margin-bottom: 20px;
+    }
+    h5 {
+      color:$dark-green;
+      margin-bottom: 20px;
+    }
 }
