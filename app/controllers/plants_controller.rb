@@ -20,6 +20,9 @@ class PlantsController < ApplicationController
     @plant = Plant.new
   end
 
+  def map
+  end
+  
   def create
     response = plantnet_api
     five = response["results"].first(5)
