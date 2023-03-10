@@ -25,23 +25,23 @@
     <div class="latest-research-container">
       <%= render "plants/list" %>
   </div>
-
-  <h2> Plantes favorites 🪴 </h2>
-  <div class="latest-research-container">
-    <div class="plant-row">
-      <% @favorites.each do |favorite| %>
-        <%= link_to plant_path(favorite) do %>
-          <div class="card plant-card">
-            <%= cl_image_tag favorite.photo.key, class: "plant-img"%>
-        <% end %>
-            <div class="card-body plant-body">
-              <h3 class="card-title plant-title text-green"><%= favorite.name %></h3>
-              <p class="card-text plant-text">France</p>
-              <i class="fas fa-heart position-icon"></i>
+  <div class="index-favorites">
+    <h2> Plantes favorites 🪴 </h2>
+    <div class="latest-research-container">
+      <div class="plant-row">
+        <% @favorites.each do |favorite| %>
+          <%= link_to plant_path(favorite) do %>
+            <div class="card plant-card">
+              <%= cl_image_tag favorite.photo.key, class: "plant-img"%>
+              <% end %>
+              <div class="card-body plant-body">
+                <h3 class="card-title plant-title text-green"><%= favorite.name %></h3>
+                <p class="card-text plant-text">France</p>
+                <i class="fas fa-heart position-icon"></i>
+              </div>
             </div>
-          </div>
-      <% end %>
-
+          <% end %>
+      </div>
     </div>
   </div>
 </div>
