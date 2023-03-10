@@ -10,5 +10,8 @@ application.register("favorite-search", FavoriteSearchController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import IndexSearchController from "./index_search_controller"
+application.register("index-search", IndexSearchController)
+
 import MapShowController from "./map_show_controller"
 application.register("map-show", MapShowController)

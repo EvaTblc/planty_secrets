@@ -7,7 +7,13 @@ class PlantsController < ApplicationController
     else
       @plants = current_user.plants
     end
-    @favorites = current_user.plants.includes(:user_plants).where(user_plants: { favorite: true } )
+    @favorites = current_user.plants.includes(:user_plants).where(user_plants: { favorite: true })
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: "plants/list", locals: { plants: @plants }, formats: [:html] }
+    end
+
   end
 
   def new

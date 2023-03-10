@@ -37,27 +37,48 @@
         </div>
       </div>
   </div>
-  <div class="list-allfavorites d-flex justify-content-center align-items-center">
-    <p class="list me-5">Listes</p>
-    <p class="favorites ms-5"><strong>Tous mes favoris</strong></p>
-  </div>
-  <div class="div", data-controller="favorite-search">
-    <div class="mt-4 mb-4 favorites-formulaire" >
-    <%= form_with url: profile_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Cherchez votre plante favorite...",
-        data: {
-          favorite_search_target: "input",
-          action: "keyup->favorite-search#update"
-          }
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary", id: "color-white" %>
-    <% end %>
-  </div>
-    <h2 class="text-green"> Plantes favorites 🪴 </h2>
-      <%= render "profile/list"%>
+
+  <div class="btn-choose-show mt-4">
+    <div class="list-allfavorites d-flex justify-content-center align-items-center">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Listes</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Favoris</button>
+        </li>
+    </div>
   </div>
 
+  <div class="tab-content mt-3" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+
+      <div class="div", data-controller="favorite-search">
+        <div class="mt-4 mb-4 favorites-formulaire" >
+        <%= form_with url: profile_path, method: :get, html: { data: {favorite_search_target: "form"}}, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Cherchez votre plante favorite...",
+            data: {
+              favorite_search_target: "input",
+              action: "keyup->favorite-search#update"
+              }
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary", id: "color-white" %>
+        <% end %>
+        </div>
+        <h2> Plantes favorites 🪴 </h2>
+          <%= render "profile/list"%>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tab-content mt-3" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+    <h4 class="mt-4">Ici prochainement 🌿</h4>
+    <p>Créez vos listes pour retrouver encore plus facilement vos plantes préférées !</p>
+    </div>
+  </div>
 </div>

@@ -6,7 +6,7 @@ class ProfileController < ApplicationController
     # FROM DESIGN TO CODE = nettoyer la search après le submit
 
     respond_to do |format|
-      format.html # Follow regular flow of Rails
+      format.html
       format.text { render partial: "profile/list", locals: { favorites: @favorites }, formats: [:html] }
     end
 
