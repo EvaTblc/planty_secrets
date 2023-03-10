@@ -47,6 +47,7 @@ class PlantsController < ApplicationController
 
   def show
     @plant = Plant.find(params[:id])
+    @user_plant_new = UserPlant.create(plant: @plant, user: current_user, favorite: false)
   end
 
   private
