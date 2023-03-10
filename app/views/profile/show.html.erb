@@ -43,7 +43,7 @@
   </div>
   <div class="div", data-controller="favorite-search">
     <div class="mt-4 mb-4 favorites-formulaire" >
-    <%= form_with url: profile_path, method: :get, class: "d-flex" do %>
+    <%= form_with url: profile_path, method: :get, html: { data: {favorite_search_target: "form", action: "turbo:submit-end->favorite-search#resetForm" }}, class: "d-flex" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
