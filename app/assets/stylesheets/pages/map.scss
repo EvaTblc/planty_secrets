@@ -1,0 +1,17 @@
+.future-carte {
+  height: 100vh;
+  padding: 20rem 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+    h2 {
+      color: $middle-green;
+      margin-bottom: 20px;
+    }
+
+    h5 {
+      color:$dark-green;
+      margin-bottom: 20px;
+    }
+}
