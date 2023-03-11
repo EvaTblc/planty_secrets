@@ -11,14 +11,13 @@
 
   <div class="plant-card-show">
     <div class="trait_dessus"></div>
-    <div class="mx-4 mt-3">
+    <div class="mx-4 mt-3"  data-controller="favorite" data-userplant="<%= @userplant.favorite %>">
       <h1 class="text-green"><%= @plant.name %></h1>
 
-    <% case @userplant.favorite %>
-      <% when false %>
-        <%= link_to "Add favorite", update_favorite_plants_path(@plant), method: :patch%>
-      <% when true %>
-        <%= "TRUE" %>
+      <% if @userplant.favorite == false %>
+        <i class="fa-regular fa-heart" data-favorite-target="icon" data-action = "click->favorite#favorited"></i>
+      <% else %>
+        <i class="fa-solid fa-heart" data-favorite-target="icon" data-action = "click->favorite#favorited"></i>
       <% end %>
 
       <p class="text-gray"><%= @plant.idapi %></p>

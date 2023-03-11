@@ -10,10 +10,11 @@ Rails.application.routes.draw do
       get :results
       patch :update_favorite
     end
-    # resources :favorites, only: [:create, :destroy]
+
+    resources :user_plants, only: [ :edit, :update]
   end
 
-  resource :user_plants, only: [:create]
+  resource :user_plants, only: [:create, :update]
   resources :favorites, only: [:create, :destroy ]
   resources :lists, only: [:create, :update]
 end

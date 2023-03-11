@@ -45,16 +45,9 @@ class PlantsController < ApplicationController
     @resultstop = Plant.where(id: params[:top])
   end
 
-  def update_favorite
-    binding.pry
-    @userplant = @userplant.plant.find(params[:id])
-    @userplant.update(favorite: true)
-  end
-
   def show
     @plant = Plant.find(params[:id])
     @userplant = UserPlant.create(plant: @plant, user: current_user, favorite: false)
-    redirect_to update_favorite_path(plant_id: @plant.id)
   end
 
   private
