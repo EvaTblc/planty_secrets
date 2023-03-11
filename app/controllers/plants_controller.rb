@@ -22,7 +22,7 @@ class PlantsController < ApplicationController
 
   def map
   end
-  
+
   def create
     response = plantnet_api
     five = response["results"].first(5)
@@ -45,15 +45,22 @@ class PlantsController < ApplicationController
     @resultstop = Plant.where(id: params[:top])
   end
 
+  def update_favorite
+    binding.pry
+    @userplant = @userplant.plant.find(params[:id])
+    @userplant.update(favorite: true)
+  end
+
   def show
     @plant = Plant.find(params[:id])
-    @user_plant_new = UserPlant.create(plant: @plant, user: current_user, favorite: false)
+    @userplant = UserPlant.create(plant: @plant, user: current_user, favorite: false)
+    redirect_to update_favorite_path(plant_id: @plant.id)
   end
 
   private
 
   def params_plant
-    params.require(:plant).permit(:photo, :top)
+    params.require(:plant).permit(:photo, :top, :plant_id)
   end
 
   def plantnet_api
@@ -62,4 +69,5 @@ class PlantsController < ApplicationController
                   body: { images: File.new(params[:plant][:photo].tempfile)},
                   headers: { 'accept' => 'application/json' })
   end
+
 end

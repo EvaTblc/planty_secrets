@@ -5,4 +5,5 @@ class Favorite < ApplicationRecord
   has_many :bookmarks
   has_many :lists, through: :bookmarks
 
+  validates :user_id, uniqueness: { scope: :plant_id }
 end

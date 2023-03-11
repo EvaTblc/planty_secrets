@@ -5,4 +5,5 @@ class UserPlant < ApplicationRecord
   has_one_attached :photo
 
   has_many :plant_locations
+
 end
