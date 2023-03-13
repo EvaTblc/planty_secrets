@@ -3,6 +3,8 @@ class Favorite < ApplicationRecord
   belongs_to :plant
 
   has_many :bookmarks
+  has_one_attached :photo
+
   has_many :lists, through: :bookmarks
 
   validates :user_id, uniqueness: { scope: :plant_id }

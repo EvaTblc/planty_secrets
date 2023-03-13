@@ -69,3 +69,16 @@
 .text-gray {
   color: $pale-gray;
 }
+
+.--fa-full-color {
+  color: $red;
+}
+
+.--fa-empty-color {
+  color: $dark-green;
+}
+
+.likebutton {
+  background-color: $white;
+  border: 0px solid $white;
+}

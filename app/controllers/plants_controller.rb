@@ -7,13 +7,13 @@ class PlantsController < ApplicationController
     else
       @plants = current_user.plants
     end
-    @favorites = current_user.plants.includes(:user_plants).where(user_plants: { favorite: true })
+    # @favorites = Favorite.where(user: current_user)
+    @favorites_plants = current_user.favorites_plants
 
     respond_to do |format|
       format.html
       format.text { render partial: "plants/list", locals: { plants: @plants }, formats: [:html] }
     end
-
   end
 
   def new
@@ -47,7 +47,8 @@ class PlantsController < ApplicationController
 
   def show
     @plant = Plant.find(params[:id])
-    @userplant = UserPlant.create(plant: @plant, user: current_user, favorite: false)
+    # find or create by !!!
+    @userplant = UserPlant.find_or_create_by(plant: @plant, user: current_user)
   end
 
   private

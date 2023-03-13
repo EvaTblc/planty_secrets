@@ -22,6 +22,7 @@
   padding-left: 40px;
   padding-right: 40px;
   margin-top: 20px;
+  margin-bottom: 0px;
   border-bottom: 2px solid $pale-gray;
   p {
     margin-bottom: 5px;
@@ -69,7 +70,6 @@
 .favorite-text {
   font-size: 10px;
   margin: 0;
-  padding-top: 2px;
   padding-bottom: 2px;
 }
 
@@ -86,9 +86,19 @@ a {
 }
 
 .btn-profile {
-  background-color: $middle-green !important;
+  background-color: none !important;
   color: $pale-gray;
   margin-right: 10px;
+  font-family: $h5;
+  font-size: large;
+}
+
+.nav-pills .nav-link.active {
+  background-color: transparent !important;
+  color: $dark-green;
+  font-weight: bold;
+  font-family: $h5;
+  font-size: large;
 }
 
 .profile-carte {
@@ -105,4 +115,25 @@ a {
       color:$dark-green;
       margin-bottom: 20px;
     }
+}
+
+.new-profile-carte {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+    h5 {
+      color: $middle-green;
+      margin-bottom: 20px;
+    }
+    h6 {
+      color:$dark-green;
+      margin-bottom: 20px;
+    }
+}
+
+.alignement {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }

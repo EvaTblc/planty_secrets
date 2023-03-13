@@ -5,16 +5,12 @@ export default class extends Controller {
   static targets = ["icon", "userplant"]
 
   connect() {
-    console.log(typeof(this.element.dataset.userplant));
+    console.log(this.element.dataset.userplant = Boolean());
   }
 
   favorited() {
     let userplant = this.element.dataset.userplant
-    userplant = Boolean(false)
     userplant = !userplant
     console.log(userplant);
-    // if (userplant = true) {
-
-    // }
   }
 }
