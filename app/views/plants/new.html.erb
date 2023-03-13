@@ -1,23 +1,29 @@
-
-<div class="background-image-new" style="background-image: url(https://images.unsplash.com/photo-1592150621744-aca64f48394a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2391&q=80)">
-
-<%= link_to plants_path, class:"btn-go-back" do %>
-      <i class="fa-solid fa-chevron-left"></i>
-    <% end %>
-
-</div>
-
-<div class="photo-card-new m-4">
-  <h2>Faites votre recherche ! 🪴</h2>
-  <p>Et trouvez les informations et propriétés médicinales de votre plante.</p>
-
-  <div class="container-form">
-      <p class="text-justify">Prenez une plante en photo, (ou choisissez de votre photothèque) ! 📸</p>
-      <%= simple_form_for (@plant) do |f| %>
-      <%= f.input :photo, as: :file %>
-      <div class="form-actions mb-2 pt3 d-flex justify-content-center">
-        <%= f.button :submit, "Rechercher", class:"btn btn-primary" %>
-      </div>
+<div class="new-page-container">
+    <div class="plant-photo" style="background-image: url(<%= image_path "eucalyptus-test" %>)", data-map-show-target="plant">
+      <%= link_to plants_path, class:"btn-go-back" do %>
+        <i class="fa-solid fa-chevron-left"></i>
       <% end %>
+
+      <h1 class="text-center sticky-top plant-name">Faites votre recherche 🪴</h1>
+  </div>
+  <div class="new-form-container">
+    <div class="photo-card-new mt-3 my-4">
+      <p class="text-center">Et découvrez les secrets votre plante.</p>
+      <div class="plant-card-new">
+        <%= image_tag "eucalyptus-test", class:"example-new" %>
+            <div class="alert-message text-center" role="alert">
+              Afin d'optimiser votre recherche, prenez en photo votre Planty de profil !
+            </div>
+          <div class="container-form">
+              <p class="text-justify"></p>
+              <%= simple_form_for (@plant) do |f| %>
+              <%= f.input :photo, as: :file, label: false%>
+              <div class="form-actions mb-2 pt3 d-flex justify-content-center">
+                <%= f.button :submit, "Rechercher", class:"btn btn-primary" %>
+              </div>
+              <% end %>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
