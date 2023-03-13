@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   resource :user_plants, only: [:create, :update]
-  resources :favorites, only: [:destroy ]
+  resources :favorites, only: [:destroy]
+  resources :bookmarks, only: [:create, :destroy]
   resources :lists, only: [:create, :update]
 end
