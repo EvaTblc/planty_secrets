@@ -55,6 +55,14 @@
         <h3>🌱Listes en cours d'implantation🌱</h3>
         <h5>Bientôt disponible pour votre exploration</h5>
         <p>Créez vos listes pour retrouver encore plus facilement vos plantes préférées !</p>
+
+        <%= simple_form_for [current_user, @list] do |f| %>
+          <%= f.input :name %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit %>
+        <% end %>
+
+        <%= @list.name %>
       </div>
     </div>
 
