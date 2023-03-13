@@ -1,29 +1,33 @@
 <div class="new-page-container">
-    <div class="plant-photo" style="background-image: url(<%= image_path "eucalyptus-test" %>)", data-map-show-target="plant">
+    <div class="plant-photo-form">
       <%= link_to plants_path, class:"btn-go-back" do %>
         <i class="fa-solid fa-chevron-left"></i>
       <% end %>
-
-      <h1 class="text-center sticky-top plant-name">Faites votre recherche 🪴</h1>
+      <h1 class="text-center sticky-top plant-name">Faites votre recherche</h1>
   </div>
-  <div class="new-form-container">
-    <div class="photo-card-new mt-3 my-4">
-      <p class="text-center">Et découvrez les secrets votre plante.</p>
-      <div class="plant-card-new">
-        <%= image_tag "eucalyptus-test", class:"example-new" %>
-            <div class="alert-message text-center" role="alert">
-              Afin d'optimiser votre recherche, prenez en photo votre Planty de profil !
-            </div>
-          <div class="container-form">
-              <p class="text-justify"></p>
-              <%= simple_form_for (@plant) do |f| %>
-              <%= f.input :photo, as: :file, label: false%>
-              <div class="form-actions mb-2 pt3 d-flex justify-content-center">
-                <%= f.button :submit, "Rechercher", class:"btn btn-primary" %>
-              </div>
-              <% end %>
+
+  <div class="photo-card-new mt-3 mx-2">
+    <p class="text-center">Découvrez les secrets des plantes.</p>
+    <div class="plant-card-new">
+      <%= image_tag "eucalyptus-test", class:"example-new" %>
+          <div class="alert-message text-center" role="alert">
+            Afin d'optimiser votre recherche, prenez en photo votre Planty de profil !
           </div>
+        <div class="container-form">
+            <div data-controller="uploads">
+              <%= simple_form_for (@plant), data: { uploads_target: "form"} do |f| %>
+                <%= f.input :photo, as: :file, input_html: { data: {uploads_target: "input",
+                                                                    # uploads_target: "formcontrol",
+                                                                    action: "change->uploads#update"
+                                                                  }}%>
+                <p class="text-justify"></p>
+                <div class="form-actions mb-2 pt3 d-flex justify-content-center">
+                  <%= f.button :submit, "Rechercher", class:"btn btn-primary" %>
+                </div>
+              <% end %>
+            </div>
         </div>
       </div>
-  </div>
+    </div>
+
 </div>

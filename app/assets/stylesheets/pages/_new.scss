@@ -1,13 +1,7 @@
 .new-page-container {
-  margin: 10px 10px 77px 10px;
+  margin-bottom:77px;
 }
 
-.new-form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
 .plant-card-new {
   display: flex;
   flex-direction: column;
@@ -35,16 +29,39 @@
 }
 
 .alert-message {
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom:20px;
   background-color: $dark-green;
   color: white;
   box-shadow: 0px 8px 20px rgba(214, 211, 192, 0.4);
-  padding: 5px;
+  padding: 10px;
 }
 
 .container-form {
   background-color: white;
   box-shadow: 0px 8px 20px rgba(214, 211, 192, 0.4);
   border-radius: 28px;
+}
+
+.form-control {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.form-label.file {
+  font-size: 100px;
+  font-weight: 700;
+  cursor: pointer;
+  color: white;
+  background-color: $dark-green;
+  display: inline-block;
+}
+
+.form-control:focus + label,
+.form-control + label:hover {
+  background-color: $white;
 }
