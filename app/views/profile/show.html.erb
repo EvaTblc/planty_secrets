@@ -61,7 +61,7 @@
     <div class="tab-pane fade show active" id="pills-favoris" role="tabpanel" aria-labelledby="pills-favoris-tab" tabindex="0">
       <div class="div", data-controller="favorite-search">
         <div class="mt-4 mb-4 favorites-formulaire" >
-          <%= form_with url: profile_path, method: :get, html: { data: {favorite_search_target: "form"}}, class: "d-flex" do %>
+          <%= form_with url: profile_path, method: :get, html: { data: {favorite_search_target: "form"}}, class: "d-flex alignement" do %>
             <%= text_field_tag :query,
               params[:query],
               class: "form-control",
@@ -74,8 +74,15 @@
             <%= submit_tag "Search", class: "btn btn-primary", id: "color-white" %>
           <% end %>
         </div>
-          <h2 class="text-green"> Plantes favorites 🪴 </h2>
-          <%= render "profile/list"%>
+          <h2 class="text-green alignement"> Plantes favorites 🪴 </h2>
+          <% if @favorites.any? %>
+            <%= render "profile/list"%>
+          <% else %>
+            <div class="new-profile-carte mt-5">
+              <h5>🌱 Vous n'avez pas de plantes favorites !🌱</h5>
+              <h6>Commencez votre exploration pour trouver vos Planty favorites.</h6>
+            </div>
+          <% end %>
       </div>
     </div>
   </div>

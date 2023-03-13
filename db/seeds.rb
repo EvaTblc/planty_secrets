@@ -1,5 +1,6 @@
 #Destroy
 puts "Kill flowers and users..."
+Favorite.destroy_all
 UserPlant.destroy_all
 User.destroy_all
 Plant.destroy_all
@@ -118,10 +119,10 @@ menthe.photo.attach(io: file, filename: "menthe.jpg", content_type: "image/jpeg"
 
 puts "Associate user & flowers"
 
-userplants1 = UserPlant.create!(user: chantal, plant: menthe, favorite: false)
-userplants2 = UserPlant.create!(user: chantal, plant: reinedespres, favorite: true)
-userplants3 = UserPlant.create!(user: chantal, plant: aubepine, favorite: false)
-userplants4 = UserPlant.create!(user: chantal, plant: lavandepapillon, favorite: true)
-userplants5 = UserPlant.create!(user: chantal, plant: aildesours, favorite: true)
+# userplants1 = UserPlant.create!(user: chantal, plant: menthe, favorite: false)
+# userplants2 = UserPlant.create!(user: chantal, plant: reinedespres, favorite: true)
+# userplants3 = UserPlant.create!(user: chantal, plant: aubepine, favorite: false)
+# userplants4 = UserPlant.create!(user: chantal, plant: lavandepapillon, favorite: true)
+# userplants5 = UserPlant.create!(user: chantal, plant: aildesours, favorite: true)
 
 puts "Everything is beautiful"
