@@ -12,8 +12,19 @@
   <div class="plant-card-show">
     <div class="trait_dessus"></div>
     <div class="mx-4 mt-3">
-      <h1 class="text-green"><%= @plant.name %></h1>
-      <i class="fas fa-heart position-icon-show"></i>
+      <div class="d-flex justify-content-between">
+        <h1 class="text-green"><%= @plant.name %></h1>
+        <% favorite = Favorite.where(user_id: current_user.id, plant_id: @plant.id) %>
+        <% if favorite.any? %>
+          <%= link_to favorite_path(favorite.first.id), data: {turbo_method: :delete}, class:"me-1" do %>
+          <i class="fa-solid fa-heart fa-xl --fa-full-color"></i>
+          <% end %>
+        <% else %>
+          <%= button_to plant_favorites_path(@plant), class:"likebutton" do %>
+            <i class="fa-regular fa-heart fa-xl --fa-empty-color"></i>
+          <% end %>
+        <% end %>
+      </div>
       <p class="text-gray"><%= @plant.idapi %></p>
     </div>
 
@@ -35,8 +46,6 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
           <h4 class="mt-4 text-green">Description</h4>
           <% case @plant.infos %>
-          <% when "Crassula pubescens" %>
-            <%= "Cette succulente est une petite plante basse formant une petite touffe qui se plait dans une exposition mi ombre. Elle peut aussi bien être gardée en intérieur, que plantée en pleine terre" %>
           <% when nil %>
             <%= "Nos meilleurs agents jardiniers sont à la recherche de la moindre petite information qui pourrait nous permettre de percer les secrets de cette Planty..." %>
           <% else %>
@@ -46,8 +55,6 @@
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
           <h4 class="mt-4 text-green">Propriétés médicinales</h4>
           <% case @plant.medecine %>
-          <% when "Arbre de jade" %>
-            <%= "Cette plante n'a pas de vertus médicinales particulières, attention en cas d'ingestion elle peut donc être potentiellement toxique." %>
           <% when nil %>
             <%= "Nos meilleurs agents jardiniers sont à la recherche de la moindre petite information qui pourrait nous permettre de percer les secrets de cette Planty..." %>
           <% else %>

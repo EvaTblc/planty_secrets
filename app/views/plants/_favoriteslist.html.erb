@@ -1,0 +1,25 @@
+<div class="plant-row">
+  <% @favorites_plants.each do |plant| %>
+    <div class="card plant-card">
+      <%= link_to plant_path(plant.id) do %>
+        <%= cl_image_tag plant.photo.key, class: "plant-img"%>
+      <% end %>
+      <div class="card-body plant-body">
+        <div class="d-flex justify-content-between">
+          <h3 class="card-title plant-title text-green"><%= plant.name %></h3>
+            <% favorites = Favorite.where(user: current_user, plant: @plants) %>
+              <% if favorites.any? %>
+                <%= link_to favorite_path(plant.id), data: {turbo_method: :delete}, class:"me-1" do %>
+                <i class="fa-solid fa-heart fa-lg --fa-full-color"></i>
+                <% end %>
+              <% else %>
+                <%= button_to plant_favorites_path(@plants), class:"likebutton" do %>
+                <i class="fa-regular fa-heart fa-lg --fa-empty-color"></i>
+                <% end %>
+              <% end %>
+        </div>
+        <p class="card-text plant-text">France</p>
+      </div>
+    </div>
+  <% end %>
+</div>

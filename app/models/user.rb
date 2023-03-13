@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :user_plants
   has_many :plants, through: :user_plants
   has_many :favorites
+  has_many :favorites_plants, through: :favorites, source: :plant
 
   has_one_attached :photo
 

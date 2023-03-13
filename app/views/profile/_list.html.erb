@@ -1,14 +1,25 @@
   <div class="favorite-research-container", data-favorite-search-target="list">
       <% @favorites.each do |favorite| %>
-        <%= link_to plant_path(favorite) do %>
-          <div class="card favorite-card">
-            <%= cl_image_tag favorite.photo.key, class: "favorite-img"%>
+        <div class="card favorite-card">
+          <%= link_to plant_path(favorite.id) do %>
+            <%= cl_image_tag favorite.photo.key, class: "favorite-img" %>
+          <% end %>
             <div class="card-body favorite-body">
-              <h3 class="card-title favorite-title"><%= favorite.name %></h3>
+              <div class="d-flex justify-content-between">
+                <h3 class="card-title favorite-title"><%= favorite.name %></h3>
+                <% favorite = Favorite.where(user: current_user, plant: @plants) %>
+                <% if favorite.any? %>
+                  <%= link_to favorite_path(favorite.first.id), data: {turbo_method: :delete}, class:"me-1" do %>
+                  <i class="fa-solid fa-heart fa-lg --fa-full-color"></i>
+                  <% end %>
+                <% else %>
+                  <%= button_to plant_favorites_path(@plants), class:"likebutton" do %>
+                  <i class="fa-regular fa-heart fa-lg --fa-empty-color"></i>
+                  <% end %>
+                <% end %>
+              </div>
               <p class="card-text favorite-text">France</p>
-              <i class="fas fa-heart position-icon-profile"></i>
             </div>
           </div>
-        <% end %>
       <% end %>
   </div>

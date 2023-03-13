@@ -7,13 +7,13 @@ class PlantsController < ApplicationController
     else
       @plants = current_user.plants
     end
-    @favorites = current_user.plants.includes(:user_plants).where(user_plants: { favorite: true })
+    # @favorites = Favorite.where(user: current_user)
+    @favorites_plants = current_user.favorites_plants
 
     respond_to do |format|
       format.html
       format.text { render partial: "plants/list", locals: { plants: @plants }, formats: [:html] }
     end
-
   end
 
   def new
@@ -22,7 +22,7 @@ class PlantsController < ApplicationController
 
   def map
   end
-  
+
   def create
     response = plantnet_api
     five = response["results"].first(5)
@@ -47,13 +47,14 @@ class PlantsController < ApplicationController
 
   def show
     @plant = Plant.find(params[:id])
-    @user_plant_new = UserPlant.create(plant: @plant, user: current_user, favorite: false)
+    # find or create by !!!
+    @userplant = UserPlant.find_or_create_by(plant: @plant, user: current_user)
   end
 
   private
 
   def params_plant
-    params.require(:plant).permit(:photo, :top)
+    params.require(:plant).permit(:photo, :top, :plant_id)
   end
 
   def plantnet_api
@@ -62,4 +63,5 @@ class PlantsController < ApplicationController
                   body: { images: File.new(params[:plant][:photo].tempfile)},
                   headers: { 'accept' => 'application/json' })
   end
+
 end
