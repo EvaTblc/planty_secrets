@@ -4,9 +4,6 @@
 
 import { application } from "./application"
 
-import FavoriteController from "./favorite_controller"
-application.register("favorite", FavoriteController)
-
 import FavoriteSearchController from "./favorite_search_controller"
 application.register("favorite-search", FavoriteSearchController)
 
