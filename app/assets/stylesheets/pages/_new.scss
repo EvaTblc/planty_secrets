@@ -1,26 +1,50 @@
-.background-image-new {
-  height: 300px;
+.new-page-container {
+  margin: 10px 10px 77px 10px;
+}
+
+.new-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.plant-card-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  background-size: cover;
-  z-index : -1;
-  top:0;
-  position: absolute;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: $white;
+  border-radius: 15px;
+  box-shadow: 0 2px 15px #00000040;
 }
 
 .photo-card-new {
-  background-color: white;
-  border-radius: 40px;
+  background-color: $beige;
+  border-radius: 15px;
+  box-shadow: 0 2px 15px #00000040;
+  padding: 20px;
+}
+
+.example-new {
+  border-radius: 28px;
+  width: 250px;
   height: auto;
-  left:0;
-  right:0;
-  top: 300px;
-  position: absolute;
+  margin-top: 20px;
+}
+
+.alert-message {
+  margin-top: 20px;
+  margin-bottom:20px;
+  background-color: $dark-green;
+  color: white;
+  box-shadow: 0px 8px 20px rgba(214, 211, 192, 0.4);
+  padding: 5px;
 }
 
 .container-form {
-  margin: 10px;
   background-color: white;
   box-shadow: 0px 8px 20px rgba(214, 211, 192, 0.4);
   border-radius: 28px;
-  padding: 20px;
 }
