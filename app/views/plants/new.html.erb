@@ -14,13 +14,12 @@
         <div class="alert-message text-center" role="alert">
           Afin d'optimiser votre recherche, prenez en photo votre Planty de profil !
         </div>
-      <div class="container-form">
+      <div class="container-form style-form-control">
         <div data-controller="uploads" class= "form-style">
           <%# <%= image_tag "uploaded.png" %>
           <%= simple_form_for (@plant), data: { uploads_target: "form"} do |f| %>
             <%= f.input :photo,
               as: :file,
-              class: "form-control",
               label: ('<i class="fa-solid fa-image"></i>  Charger un fichier').html_safe,
               input_html: {
                 data: {
