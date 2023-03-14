@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resource :profile, only: [:show], controller: "profile"
 
   resources :user, except: [:index, :new, :create, :update, :edit, :show, :destroy] do
-    resources :lists, only: [:create, :update, :show]
+    resources :lists, only: [:create, :update, :show] do
+      resources :bookmarks, only: [:create, :destroy]
+    end
   end
 
   resources :plants, only: [ :index, :new, :show, :create ] do
@@ -19,6 +21,4 @@ Rails.application.routes.draw do
 
   resource :user_plants, only: [:create, :update]
   resources :favorites, only: [:destroy]
-  resources :bookmarks, only: [:create, :destroy]
-
 end

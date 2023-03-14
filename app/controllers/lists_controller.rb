@@ -16,7 +16,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @plants = Plant.all
+    @favoriteplants = current_user.favorites_plants
+    @bookmark = Bookmark.new
   end
 
   private
