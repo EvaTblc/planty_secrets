@@ -32,6 +32,7 @@ export default class extends Controller {
   }
 
   displaynone () {
+    // console.log(this.map);
     this.map.remove()
     // this.mapTarget.classList.add("d-none");
     // this.plantTarget.classList.remove("d-none");
