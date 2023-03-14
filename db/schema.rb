@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_103643) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_081351) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -87,6 +87,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_103643) do
     t.text "infos"
     t.text "medecine"
     t.text "trouver"
+    t.text "fun_facts"
+    t.text "entretien"
+    t.text "cuisine"
+    t.text "taille"
+    t.text "exposition"
+    t.text "floraison"
+    t.text "toxicite"
+    t.text "fun_facts2"
+    t.text "fun_facts3"
+    t.text "arrosage"
+    t.text "composition_du_sol"
+    t.text "humidite_du_sol"
+    t.text "temperature_min"
+    t.text "toxicite2"
+    t.text "medecine2"
+    t.text "medecine3"
+    t.text "medecine4"
+    t.text "medecine5"
+    t.text "medecine6"
   end
 
   create_table "user_plants", force: :cascade do |t|
