@@ -1,19 +1,33 @@
 <div data-controller="map-show">
+  <div data-location="location"><% location = PlantLocation.where(plant_id: @plant.id) %></div>
   <div class="plant-photo" style="background-image: url(<%= cl_image_path @plant.photo.key %>)", data-map-show-target="plant">
     <%= link_to plants_path, class:"btn-go-back" do %>
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
 
+    <div id="map" style="height: 300px; width: 600px" data-map-show-target="input"></div>
+
       <h1 class="text-center sticky-top plant-name"><%= @plant.name %></h1>
   </div>
 
-  <div class="map-photo d-none", data-map-show-target="map", style="background-image: url('../../assets/images/map.jpg')"></div>
+  <div class="map-photo d-none", data-map-show-target="map"></div>
 
   <div class="plant-card-show">
     <div class="trait_dessus"></div>
     <div class="mx-4 mt-3">
-      <h1 class="text-green"><%= @plant.name %></h1>
-      <i class="fas fa-heart position-icon-show"></i>
+      <div class="d-flex justify-content-between">
+        <h1 class="text-green"><%= @plant.name %></h1>
+        <% favorite = Favorite.where(user_id: current_user.id, plant_id: @plant.id) %>
+        <% if favorite.any? %>
+          <%= link_to favorite_path(favorite.first.id), data: {turbo_method: :delete}, class:"me-1" do %>
+          <i class="fa-solid fa-heart fa-xl --fa-full-color"></i>
+          <% end %>
+        <% else %>
+          <%= button_to plant_favorites_path(@plant), class:"likebutton" do %>
+            <i class="fa-regular fa-heart fa-xl --fa-empty-color"></i>
+          <% end %>
+        <% end %>
+      </div>
       <p class="text-gray"><%= @plant.idapi %></p>
     </div>
 
@@ -26,10 +40,11 @@
             <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" data-action="click->map-show#displaynone">Médecine</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" data-action="click->map-show#display">Trouver</button>
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" data-action="click->map-show#clickmap">Trouver</button>
           </li>
         </ul>
     </div>
+
     <div class="tab-content mt-4 ms-3" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
           <h4 class="mt-4 text-green">Description</h4>
@@ -64,7 +79,12 @@
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
           <h4 class="mt-4 text-green">Où trouver cette plante?</h4>
-          <p class="infos-scroll"><%= @plant.trouver %></p>
+          <% case @plant.trouver %>
+          <% when nil %>
+            <%= "Nos meilleurs agents jardiniers sont à la recherche de la moindre petite information qui pourrait nous permettre de percer les secrets de cette Planty..." %>
+          <% else %>
+            <p class="infos-scroll"><%= @plant.trouver %></p>
+          <% end %>
         </div>
     </div>
   </div>

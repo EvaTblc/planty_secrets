@@ -4,14 +4,21 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:show], controller: "profile"
 
+  resources :user, except: [:index, :new, :create, :update, :edit, :show, :destroy] do
+    resources :lists, only: [:create, :update, :destroy, :show] do
+      resources :bookmarks, only: [:create, :destroy]
+    end
+  end
+
   resources :plants, only: [ :index, :new, :show, :create ] do
     collection do
       get :map
       get :results
     end
+
+    resources :favorites, only: [:create]
   end
 
-  resource :user_plants, only: [:create]
-  resources :favorites, only: [:destroy, :create]
-  resources :lists, only: [:create, :update]
+  resource :user_plants, only: [:create, :update]
+  resources :favorites, only: [:destroy]
 end

@@ -4,7 +4,6 @@
   padding-bottom: 10px;
 }
 
-
 .plant-row {
   display: flex;
   flex-direction: row;
@@ -54,4 +53,9 @@
 
 a {
   text-decoration: none;
+}
+
+.form-control-new {
+	width: 100%;
+  border: 1px solid $beige;
 }

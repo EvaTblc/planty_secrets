@@ -1,23 +1,47 @@
+<div class="new-page-container">
 
-<div class="background-image-new" style="background-image: url(https://images.unsplash.com/photo-1592150621744-aca64f48394a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2391&q=80)">
-
-<%= link_to plants_path, class:"btn-go-back" do %>
-      <i class="fa-solid fa-chevron-left"></i>
-    <% end %>
-
-</div>
-
-<div class="photo-card-new m-4">
-  <h2>Faites votre recherche ! 🪴</h2>
-  <p>Et trouvez les informations et propriétés médicinales de votre plante.</p>
-
-  <div class="container-form">
-      <p class="text-justify">Prenez une plante en photo, (ou choisissez de votre photothèque) ! 📸</p>
-      <%= simple_form_for (@plant) do |f| %>
-      <%= f.input :photo, as: :file %>
-      <div class="form-actions mb-2 pt3 d-flex justify-content-center">
-        <%= f.button :submit, "Rechercher", class:"btn btn-primary" %>
-      </div>
+    <div class="plant-photo-form">
+      <%= link_to plants_path, class:"btn-go-back" do %>
+        <i class="fa-solid fa-chevron-left"></i>
       <% end %>
+      <h1 class="text-center sticky-top plant-name">Faites votre recherche</h1>
+  </div>
+
+  <div class="photo-card-new mt-3 mx-2">
+    <p class="text-center">Découvrez les secrets des plantes.</p>
+    <div class="plant-card-new" data-controller="loaders">
+      <%= image_tag "eucalyptus-test.png", class:"example-new", data: { loaders_target: "image", action:"submit->loaders#loading"} %>
+      <div class="loader d-none" data-loaders-target="loader"></div>
+      <div class="alert-message text-center" role="alert">
+        Afin d'optimiser votre recherche, prenez en photo votre Planty de profil !
+      </div>
+      <div class="container-form style-form-control">
+        <div data-controller="uploads" class= "form-style">
+          <%= simple_form_for (@plant), data: { uploads_target: "form", action:"submit->loaders#loading"} do |f| %>
+            <%= f.input :photo,
+              as: :file,
+              label: ('<i class="fa-solid fa-image"></i>  Charger un fichier').html_safe,
+              input_html: {
+                data: {
+                  uploads_target: "input",
+                  action: "change->uploads#update"
+                }
+              }
+            %>
+            <p class="text-center" data-uploads-target="nomFichier"></p>
+            <div class="form-actions mb-2 pt3 d-flex justify-content-center">
+              <%= f.button :submit, "Rechercher",
+                class:"btn btn-primary mb-3",
+                input_html: {
+                  data: {
+                    loaders_target: "search"
+                  }
+                }
+              %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

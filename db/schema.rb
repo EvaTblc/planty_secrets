@@ -64,6 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_081351) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "plant_locations", force: :cascade do |t|
@@ -111,7 +113,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_081351) do
   create_table "user_plants", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "plant_id", null: false
-    t.boolean "favorite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["plant_id"], name: "index_user_plants_on_plant_id"
@@ -141,6 +142,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_081351) do
   add_foreign_key "bookmarks", "lists"
   add_foreign_key "favorites", "plants"
   add_foreign_key "favorites", "users"
+  add_foreign_key "lists", "users"
   add_foreign_key "plant_locations", "plants"
   add_foreign_key "plant_locations", "user_plants"
   add_foreign_key "user_plants", "plants"

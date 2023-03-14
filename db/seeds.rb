@@ -1,5 +1,8 @@
 #Destroy
 puts "Kill flowers and users..."
+
+Favorite.destroy_all
+List.destroy_all
 UserPlant.destroy_all
 User.destroy_all
 Plant.destroy_all
@@ -499,7 +502,6 @@ aildesours = Plant.create!(name: "Ail des ours",
   trouver: "Cette jolie plante herbacée sauvage pousse spontanément dans les sous-bois, et les forêts de hêtres, de charmes ou de chênes, dans des zones plutôt humides et ombragées. On le trouve beaucoup en montagne, jusqu’à 1600 m d’altitude. L’ail des ours est très fréquent dans le Grand-Est et dans tous les massifs montagneux, moins courant dans le Sud hormis dans les Pyrénées.")
 file = File.open(Rails.root.join("db/seeds/images/plants/aildesours.jpg"))
 aildesours.photo.attach(io: file, filename: "aildesours.jpg", content_type: "image/jpeg")
-# latitude: 45.83309988858224, longitude:6.865046121653787,
 
 laurierrose = Plant.create!(name: "Laurier rose",
   species: "Arbuste",
@@ -564,7 +566,6 @@ ortie.photo.attach(io: file, filename: "ortie.jpg", content_type: "image/jpeg")
 aubepine = Plant.create!(name: "Aubépine", species: "Arbuste", idapi: "Crataegus", infos: "Petit arbre arrondi qui peut mesurer jusqu’à 12 mètres de hauteur mais reste généralement aux alentours de 4 mètres, l’aubépine affiche un tronc court et une silhouette très ramifiée. Certaines espèces sont épineuses. Les feuilles caduques sont ovales, brillantes, parfois profondément lobées, et chez certaines espèces, le feuillage prend de sublimes couleurs automnales à l’arrivée du froid.", medecine: "Grâce aux progrès de la science, de nombreux principes actifs de l'aupépine ont pu être identifiés au sein des fleurs et des sommités fleuries. Ces composés présentent une activité antioxydante, cardiotonique, cardioprotectrice et apaisante. C’est pourquoi l’aubépine est aujourd’hui préconisée pour lutter contre les palpitations, l’hypertension, la nervosité, l’anxiété, ainsi que les troubles du sommeil.", trouver: "L’aubépine est un arbuste qui se développe dans différents environnements et dans de nombreuses régions du monde. Elle est commune en Asie occidentale, en Afrique du Nord, ainsi qu’en Europe centrale et nordique. En France, l’aubépine se retrouve dans les bois clairs, les lisières, les haies ou encore les coteaux. Toutefois, elle a une préférence pour les terrains calcaires avec une exposition ensoleillée.")
 file = File.open(Rails.root.join("db/seeds/images/plants/aubepine.jpg"))
 aubepine.photo.attach(io: file, filename: "aubepine.jpg", content_type: "image/jpeg")
-# , latitude: 47.131951955272505,longitude: -1.6941922066009414
 
 reinedespres = Plant.create!(name: "Reine des prés", species: "Plante", idapi: "Filipendula ulmaria", infos: "La reine des prés est une plante herbacée. Ses tiges sont dressées, anguleuses, veinées de rouge et portant des feuilles qui sont alternes et découpées – vert foncé dessus, et blanches dessous. Ses fleurs sont blanches et dégagent un parfum doux et agréable. Elles sont regroupées en corymbes irréguliers. Enfin, ses fruits sont en grappes et s’enroulent sur eux-mêmes, ce qui a inspiré le nom de la plante (spirée).", medecine: "La reine des prés, c’est une aspirine naturelle qui permet de profiter de ses avantages – sans effets secondaires potentiellement néfastes, comme les ulcères par exemple. Elle est très efficace en infusion, mais son goût est particulier : n’hésitez pas à l’associer à d’autres plantes, ou à ajouter du miel pour rendre son goût plus agréable. En cure détox, elle existe sous forme de gélules ou d’ampoules – et est souvent associée à d’autres plantes. Précautions d’emploi : la reine des prés est déconseillée aux personnes souffrant d’allergies aux dérivés salicylés – ou se trouvant sous traitement anticoagulant.", trouver: "La reine des prés pousse en Europe. On la retrouve partout, sauf dans les régions méridionales. Elle affectionne particulièrement les prairies humides, les fossés et les tourbières.")
 file = File.open(Rails.root.join("db/seeds/images/plants/reinedespres.jpg"))
@@ -579,10 +580,18 @@ camomille.photo.attach(io: file, filename: "camomille.jpg", content_type: "image
 
 puts "Associate user & flowers"
 
+
 userplants1 = UserPlant.create!(user: chantal, plant: basilic)
 userplants2 = UserPlant.create!(user: chantal, plant: reinedespres)
 userplants3 = UserPlant.create!(user: chantal, plant: aubepine)
 userplants4 = UserPlant.create!(user: chantal, plant: lavandepapillon)
 userplants5 = UserPlant.create!(user: chantal, plant: aildesours)
+
+plantloc1 = PlantLocation.create!(latitude: 47.131951955272505, longitude: -1.6941922066009414, plant: aubepine, user_plant: userplants3)
+plantloc2 = PlantLocation.create!(latitude: 45.83309988858224, longitude:6.865046121653787, plant: aildesours, user_plant: userplants5)
+plantloc3 = PlantLocation.create!(latitude: 47.224167182693506, longitude:-1.5822665824085338, plant: basilic, user_plant: userplants1)
+plantloc4 = PlantLocation.create!(latitude: 47.127402318271855, longitude: -1.6744793619236116, plant: reinedespres, user_plant: userplants2)
+plantloc5 = PlantLocation.create!(latitude: 47.10258029446564, longitude:-2.073020656482966, plant: lavandepapillon, user_plant: userplants4)
+
 
 puts "Everything is beautiful"
