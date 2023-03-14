@@ -62,5 +62,4 @@ class PlantsController < ApplicationController
                   body: { images: File.new(params[:plant][:photo].tempfile)},
                   headers: { 'accept' => 'application/json' })
   end
-
 end

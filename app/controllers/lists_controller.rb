@@ -14,6 +14,12 @@ class ListsController < ApplicationController
     @plantlist.update
   end
 
+  def destroy
+      @list = List.find(params[:id])
+      @list.delete
+      redirect_to user_list_path()
+  end
+
   def show
     @list = List.find(params[:id])
     @favoriteplants = current_user.favorites_plants
