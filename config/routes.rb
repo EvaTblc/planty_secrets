@@ -8,14 +8,13 @@ Rails.application.routes.draw do
     collection do
       get :map
       get :results
-      # patch :update_favorite
     end
 
     resources :favorites, only: [:create]
-    # resources :user_plants, only: [ :edit, :update]
   end
 
   resource :user_plants, only: [:create, :update]
-  resources :favorites, only: [:destroy ]
+  resources :favorites, only: [:destroy]
+  resources :bookmarks, only: [:create, :destroy]
   resources :lists, only: [:create, :update]
 end
