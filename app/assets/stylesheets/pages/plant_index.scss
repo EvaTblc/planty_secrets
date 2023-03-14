@@ -1,18 +1,25 @@
 .index-container {
-margin: 10px 10px 70px 10px;
+margin-bottom: 77px;
 padding-right: 10px;
   h1 {
-    margin-left: 10px;
+    margin-left: 20px;
     color: $dark-green;
   }
   h2 {
-    margin: 7x 5px 5px 10px;
+    padding-left:20px;
     color: $middle-green;
   }
 }
 
 .formulaire {
-  margin-left: 10px;
+  padding-left: 20px;
+}
+
+.form-control-new {
+  padding-left: 20px;
+  border:$middle-green 1px solid;
+  border-radius: 15px;
+  margin-right: 10px;
 }
 
 .search-btn {

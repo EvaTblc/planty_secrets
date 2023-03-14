@@ -24,24 +24,29 @@ class PlantsController < ApplicationController
   end
 
   def create
-    response = plantnet_api
-    five = response["results"].first(5)
-    @top = []
-    five.each do |plant|
-      if Plant.find_by(idapi: plant["species"]["scientificNameWithoutAuthor"])
-        found_plant = Plant.find_by(idapi: plant["species"]["scientificNameWithoutAuthor"])
-        found_plant.score = ((plant["score"] * 100) / 1)
-        found_plant.species = plant["species"]["scientificNameWithoutAuthor"]
-        found_plant.save
-      else
-        found_plant = Plant.create(idapi: plant["species"]["scientificNameWithoutAuthor"], name: plant["species"]["commonNames"][0], species: plant["species"]["scientificNameWithoutAuthor"], score:  (plant["score"] * 100) / 1)
-        file = URI.open(plant["images"][0]["url"]["o"])
-        found_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
-        found_plant.save
+    @plant = Plant.new
+    if params[:plant]
+      response = plantnet_api
+      five = response["results"].first(5)
+      @top = []
+      five.each do |plant|
+        if Plant.find_by(idapi: plant["species"]["scientificNameWithoutAuthor"])
+          found_plant = Plant.find_by(idapi: plant["species"]["scientificNameWithoutAuthor"])
+          found_plant.score = ((plant["score"] * 100) / 1)
+          found_plant.species = plant["species"]["scientificNameWithoutAuthor"]
+          found_plant.save
+        else
+          found_plant = Plant.create(idapi: plant["species"]["scientificNameWithoutAuthor"], name: plant["species"]["commonNames"][0], species: plant["species"]["scientificNameWithoutAuthor"], score:  (plant["score"] * 100) / 1)
+          file = URI.open(plant["images"][0]["url"]["o"])
+          found_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
+          found_plant.save
+        end
+        @top << found_plant.id
       end
-      @top << found_plant.id
+      redirect_to results_plants_path(top: @top)
+    else
+      redirect_to "/plants/new", status: :unprocessable_entity
     end
-    redirect_to results_plants_path(top: @top)
   end
 
   def results

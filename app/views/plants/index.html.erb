@@ -4,7 +4,7 @@
   </div>
   <h1>Découvre de nouvelles plantes!</h1>
 
-  <div class="div", data-controller="index-search">
+  <div class="div index-display", data-controller="index-search">
     <div class="mt-4 mb-4 formulaire">
       <%= form_with url: plants_path, method: :get, html: { data: {index_search_target: "form"}}, class: "d-flex" do %>
         <%= text_field_tag :query,
