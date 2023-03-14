@@ -19,6 +19,9 @@ application.register("hello", HelloController)
 import IndexSearchController from "./index_search_controller"
 application.register("index-search", IndexSearchController)
 
+import LoadersController from "./loaders_controller"
+application.register("loaders", LoadersController)
+
 import MapShowController from "./map_show_controller"
 application.register("map-show", MapShowController)
 
