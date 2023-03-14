@@ -1,16 +1,17 @@
-<div data-controller="map-show">
-  <div data-location="location"><% location = PlantLocation.where(plant_id: @plant.id) %></div>
-  <div class="plant-photo" style="background-image: url(<%= cl_image_path @plant.photo.key %>)", data-map-show-target="plant">
+<div data-controller="map-show"
+    data-map-show-markers-value="<%= @markers.to_json %>"
+    data-map-show-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  <div class="plant-photo" style="background-image: url(<%= cl_image_path @plant.photo.key %>)" data-map-show-target="plant">
+
+    <div style="width: 100%; height: 600px;" class="bg-transparent" data-map-show-target="map"></div>
+
     <%= link_to plants_path, class:"btn-go-back" do %>
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
 
-    <div id="map" style="height: 300px; width: 600px" data-map-show-target="input"></div>
-
-      <h1 class="text-center sticky-top plant-name"><%= @plant.name %></h1>
+    <h1 class="text-center sticky-top plant-name"><%= @plant.name %></h1>
   </div>
-
-  <div class="map-photo d-none", data-map-show-target="map"></div>
 
   <div class="plant-card-show">
     <div class="trait_dessus"></div>
@@ -40,7 +41,7 @@
             <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" data-action="click->map-show#displaynone">Médecine</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" data-action="click->map-show#clickmap">Trouver</button>
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" data-action="click->map-show#display">Trouver</button>
           </li>
         </ul>
     </div>
