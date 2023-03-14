@@ -28,13 +28,16 @@ class PlantsController < ApplicationController
     five = response["results"].first(5)
     @top = []
     five.each do |plant|
-      found_plant = Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |user_plant|
-        user_plant.name = plant["species"]["commonNames"][0]
-        user_plant.species = plant["species"]["scientificNameWithoutAuthor"]
-        user_plant.score = ((plant["score"] * 100) / 1)
+      if Plant.find_by(idapi: plant["species"]["scientificNameWithoutAuthor"])
+        found_plant = Plant.find_by(idapi: plant["species"]["scientificNameWithoutAuthor"])
+        found_plant.score = ((plant["score"] * 100) / 1)
+        found_plant.species = plant["species"]["scientificNameWithoutAuthor"]
+        found_plant.save
+      else
+        found_plant = Plant.create(idapi: plant["species"]["scientificNameWithoutAuthor"], name: plant["species"]["commonNames"][0], species: plant["species"]["scientificNameWithoutAuthor"], score:  (plant["score"] * 100) / 1)
         file = URI.open(plant["images"][0]["url"]["o"])
-        user_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
-        user_plant.save
+        found_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
+        found_plant.save
       end
       @top << found_plant.id
     end
@@ -42,7 +45,7 @@ class PlantsController < ApplicationController
   end
 
   def results
-    @resultstop = Plant.where(id: params[:top])
+    @resultstop = Plant.where(id: params[:top]).sort_by {|result| result[:score]}.reverse!
   end
 
   def show

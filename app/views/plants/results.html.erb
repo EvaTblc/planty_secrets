@@ -19,6 +19,7 @@
       <% @resultstop.each do |plant| %>
         <%# <% plant.sort_by {|plant| plant.score} %>
         <div class="card results-card">
+        
           <%= link_to plant_path(plant) do %>
             <% if plant.photo.attached? %>
               <%= cl_image_tag plant.photo.key, class: "results-image" %>
