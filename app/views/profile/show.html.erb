@@ -52,9 +52,30 @@
   <div class="tab-content mt-3" id="pills-tabContent">
     <div class="tab-pane fade show" id="pills-listes" role="tabpanel" aria-labelledby="pills-listes-tab" tabindex="0">
       <div class="profile-carte">
-        <h3>🌱Listes en cours d'implantation🌱</h3>
+        <%# <h3>🌱Listes en cours d'implantation🌱</h3>
         <h5>Bientôt disponible pour votre exploration</h5>
-        <p>Créez vos listes pour retrouver encore plus facilement vos plantes préférées !</p>
+        <p>Créez vos listes pour retrouver encore plus facilement vos plantes préférées !</p> %>
+        <div data-controller="add-list">
+          <button class="button-37" role="button">
+          <i class="fa-solid fa-plus fa-xs ml-2" data-action="click->add-list#displayForm"></i>
+          </button>
+
+          <%= simple_form_for [current_user, @list], html: {class: "d-none", data: {add_list_target: "form"}} do |f| %>
+            <%= f.input :name %>
+            <%= f.submit %>
+          <% end %>
+
+            <div data-add-list-target="infos">
+              <% current_user.lists.each do |list| %>
+                <div class="card-list mb-3 mt-3">
+                  <%= link_to user_list_path(current_user, list) do %>
+                    <%= list.name %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+        </div>
+
       </div>
     </div>
 
