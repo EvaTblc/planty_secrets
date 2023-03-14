@@ -1,6 +1,7 @@
 #Destroy
 puts "Kill flowers and users..."
 
+PlantLocation.destroy_all
 Favorite.destroy_all
 List.destroy_all
 UserPlant.destroy_all
