@@ -3,6 +3,7 @@ class BookmarksController < ApplicationController
     @list = List.find(params[:list_id])
     @bookmark = Bookmark.new(params_bookmark)
     @bookmark.list = @list
+    @bookmark.favorite = @favorite
 
     if @bookmark.save
       redirect_to profile_path

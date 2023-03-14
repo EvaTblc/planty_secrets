@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resource :profile, only: [:show], controller: "profile"
 
   resources :user, except: [:index, :new, :create, :update, :edit, :show, :destroy] do
-    resources :lists, only: [:create, :update]
+    resources :lists, only: [:create, :update, :show]
   end
 
   resources :plants, only: [ :index, :new, :show, :create ] do

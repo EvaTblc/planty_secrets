@@ -1,16 +1,22 @@
 class ListsController < ApplicationController
   def create
-    @lists = List.create(params_list)
-    if @lists.save
+    @plantlist = List.new(params_list)
+    @plantlist.user = current_user
+    if @plantlist.save
       redirect_to profile_path
     else
-      flash[:notice] = @lists.errors.full_messages.to_sentence
+      flash[:notice] = @plantlist.errors.full_messages.to_sentence
     end
   end
 
   def update
+    @plantlist = List.find(params[:id])
+    @plantlist.update
+  end
+
+  def show
     @list = List.find(params[:id])
-    @list.update
+    @plants = Plant.all
   end
 
   private
