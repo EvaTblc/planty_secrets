@@ -85,7 +85,7 @@
           <%= form_with url: profile_path, method: :get, html: { data: {favorite_search_target: "form"}}, class: "d-flex alignement" do %>
             <%= text_field_tag :query,
               params[:query],
-              class: "form-control",
+              class: "form-control-new",
               placeholder: "Cherchez votre plante favorite...",
               data: {
                 favorite_search_target: "input",

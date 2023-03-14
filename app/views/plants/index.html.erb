@@ -9,7 +9,7 @@
       <%= form_with url: plants_path, method: :get, html: { data: {index_search_target: "form"}}, class: "d-flex" do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
+          class: "form-control-new",
           placeholder: "Cherchez votre plante...",
           data: {
             index_search_target: "input",
