@@ -21,3 +21,6 @@ application.register("index-search", IndexSearchController)
 
 import MapShowController from "./map_show_controller"
 application.register("map-show", MapShowController)
+
+import UploadsController from "./uploads_controller"
+application.register("uploads", UploadsController)
