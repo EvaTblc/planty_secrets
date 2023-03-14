@@ -9,15 +9,15 @@
 
   <div class="photo-card-new mt-3 mx-2">
     <p class="text-center">Découvrez les secrets des plantes.</p>
-    <div class="plant-card-new">
-      <%= image_tag "eucalyptus-test.png", class:"example-new" %>
-        <div class="alert-message text-center" role="alert">
-          Afin d'optimiser votre recherche, prenez en photo votre Planty de profil !
-        </div>
+    <div class="plant-card-new" data-controller="loaders">
+      <%= image_tag "eucalyptus-test.png", class:"example-new", data: { loaders_target: "image", action:"submit->loaders#loading"} %>
+      <div class="loader d-none" data-loaders-target="loader"></div>
+      <div class="alert-message text-center" role="alert">
+        Afin d'optimiser votre recherche, prenez en photo votre Planty de profil !
+      </div>
       <div class="container-form style-form-control">
         <div data-controller="uploads" class= "form-style">
-          <%# <%= image_tag "uploaded.png" %>
-          <%= simple_form_for (@plant), data: { uploads_target: "form"} do |f| %>
+          <%= simple_form_for (@plant), data: { uploads_target: "form", action:"submit->loaders#loading"} do |f| %>
             <%= f.input :photo,
               as: :file,
               label: ('<i class="fa-solid fa-image"></i>  Charger un fichier').html_safe,
@@ -30,12 +30,18 @@
             %>
             <p class="text-center" data-uploads-target="nomFichier"></p>
             <div class="form-actions mb-2 pt3 d-flex justify-content-center">
-              <%= f.button :submit, "Rechercher", class:"btn btn-primary mb-3" %>
+              <%= f.button :submit, "Rechercher",
+                class:"btn btn-primary mb-3",
+                input_html: {
+                  data: {
+                    loaders_target: "search"
+                  }
+                }
+              %>
             </div>
           <% end %>
         </div>
       </div>
-      <div class="loader"></div>
     </div>
   </div>
 </div>

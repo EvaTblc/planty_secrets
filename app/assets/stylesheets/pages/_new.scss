@@ -65,17 +65,22 @@
   color: $dark-green;
 }
 
+.form-label:active {
+  transform: translateY(4px);
+}
+
 .form-control:focus + label,
 .form-control + label:hover {
   background-color: $white;
 }
 
 .loader {
-  border: 16px solid $pale-green;
-  border-top: 16px solid $dark-green;
+  border: 8px solid $pale-green;
+  border-top: 14px solid $dark-green;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
+  margin: 100px;
   animation: spin 2s linear infinite;
 }
 
