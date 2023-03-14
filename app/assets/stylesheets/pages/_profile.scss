@@ -133,6 +133,17 @@ a {
     }
 }
 
+.card-list {
+  background-color: $beige;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px #00000040;
+    height: 40px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
 .alignement {
   margin-left: 1rem;
   margin-right: 1rem;

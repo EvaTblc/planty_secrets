@@ -28,15 +28,15 @@ class PlantsController < ApplicationController
     five = response["results"].first(5)
     @top = []
     five.each do |plant|
-      Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |user_plant|
+      found_plant = Plant.find_or_create_by(idapi: plant["species"]["scientificNameWithoutAuthor"]) do |user_plant|
         user_plant.name = plant["species"]["commonNames"][0]
         user_plant.species = plant["species"]["scientificNameWithoutAuthor"]
         user_plant.score = ((plant["score"] * 100) / 1)
         file = URI.open(plant["images"][0]["url"]["o"])
         user_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
         user_plant.save
-        @top << user_plant.id
       end
+      @top << found_plant.id
     end
     redirect_to results_plants_path(top: @top)
   end
@@ -47,7 +47,6 @@ class PlantsController < ApplicationController
 
   def show
     @plant = Plant.find(params[:id])
-    # find or create by !!!
     @userplant = UserPlant.find_or_create_by(plant: @plant, user: current_user)
   end
 
