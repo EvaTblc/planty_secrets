@@ -13,8 +13,11 @@
     <meta name="mobile-web-app-capable" content="yes">
 
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+
+<%# MAPBOX %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css" rel="stylesheet">
-    
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>

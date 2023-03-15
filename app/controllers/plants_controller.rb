@@ -51,6 +51,13 @@ class PlantsController < ApplicationController
   def show
     @plant = Plant.find(params[:id])
     @userplant = UserPlant.find_or_create_by(plant: @plant, user: current_user)
+
+    location = PlantLocation.where(plant_id: params[:id])
+    @markers =
+      [
+        lat: location[0].latitude,
+        lng: location[0].longitude
+      ]
   end
 
   private
