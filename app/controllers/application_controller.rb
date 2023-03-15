@@ -1,3 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+
+  def default_url_options
+    { host: ENV["www.planty-secrets.site"] || "localhost:3000" }
+  end
+
 end
