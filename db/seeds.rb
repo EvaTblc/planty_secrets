@@ -44,8 +44,8 @@ mentheverte = Plant.create!(name: "Menthe verte",
   medecine5: "Système nerveux : insomnie, nervosité, palpitation, migraine, névralgie, vertige",
   medecine6: "Elle combat aussi mauvaise haleine et aérophagie")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/menthe_verte.jpeg"))
-mentheverte.photo.attach(io: file, filename: "menthe_verte.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/menthe_verte.jpg"))
+mentheverte.photo.attach(io: file, filename: "menthe_verte.jpg", content_type: "image/jpeg")
 
 #Menthe poivrée
 menthepoivree = Plant.create!(name: "Menthe poivrée",
@@ -70,11 +70,11 @@ menthepoivree = Plant.create!(name: "Menthe poivrée",
   medecine2: "Maux de tête : calme (huile essentielle sur les tempes)",
   medecine3: "Animaux de companie: Gale : verser dans 1l d’eau bouillante de la menthe poivrée, du thym et du serpolet. Après 20 min, filtrer et ajouter 10cl de vinaigre de cidre. Lui appliquer cette lotion en massage.")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/menthepoivree.jpeg"))
-menthepoivree.photo.attach(io: file, filename: "menthepoivree.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/menthepoivree.jpg"))
+menthepoivree.photo.attach(io: file, filename: "menthepoivree.jpg", content_type: "image/jpeg")
 
-#Menthe à feuilles rondes
-mentheafeuillesrondes = Plant.create!(name: "Menthe Odorante",
+#Menthe odorante
+mentheodorante = Plant.create!(name: "Menthe Odorante",
   species: "Plante",
   idapi: "Mentha suaveolens",
   infos: "La menthe odorante ou menthe à feuilles rondes (Mentha Suaveolens) est une plante herbacée de la famille des Lamiacées. Autres appellations : menthe suave, baume sauvage, menthastre, menthe de cheval, menthe simple, ou menthe pomme (en jardinerie).",
@@ -94,8 +94,8 @@ mentheafeuillesrondes = Plant.create!(name: "Menthe Odorante",
   medecine: "En usage interne :  La menthe à feuilles rondes est une plante médicinale digestive, stimulante de l'estomac, anti oxydante et anti infectieuse. On la conseillera contre les fermentations digestives (gaz, ballonnements, etc.).",
   medecine2: "En usage externe :  L'huile essentielle de menthe à feuilles rondes est un excellent insecticide, qu'on pourrait utiliser comme anti poux. Mais attention à ne pas l'utiliser chez les enfants en bas âge.")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/mentheafeuillesrondes.jpeg"))
-mentheafeuillesrondes.photo.attach(io: file, filename: "mentheafeuillesrondes.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/mentheodorante.jpg"))
+mentheodorante.photo.attach(io: file, filename: "mentheodorante.jpg", content_type: "image/jpeg")
 
 #Menthe à feuilles rondes
 mentheafeuillesrondes = Plant.create!(name: "Menthe à feuilles rondes",
@@ -118,8 +118,8 @@ mentheafeuillesrondes = Plant.create!(name: "Menthe à feuilles rondes",
   medecine: "En usage interne :  La menthe à feuilles rondes est une plante médicinale digestive, stimulante de l'estomac, anti oxydante et anti infectieuse. On la conseillera contre les fermentations digestives (gaz, ballonnements, etc.).",
   medecine2: "En usage externe :  L'huile essentielle de menthe à feuilles rondes est un excellent insecticide, qu'on pourrait utiliser comme anti poux. Mais attention à ne pas l'utiliser chez les enfants en bas âge.")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/mentheafeuillesrondes.jpeg"))
-mentheafeuillesrondes.photo.attach(io: file, filename: "mentheafeuillesrondes.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/mentheafeuillesrondes.jpg"))
+mentheafeuillesrondes.photo.attach(io: file, filename: "mentheafeuillesrondes.jpg", content_type: "image/jpeg")
 
 #Menthe sylvestre
 menthesylvestre = Plant.create!(name: "Menthe Sylvestre",
@@ -142,8 +142,8 @@ menthesylvestre = Plant.create!(name: "Menthe Sylvestre",
   medecine: "En usage interne :  La menthe à feuilles longue (ou menthe sylvestre) est une plante médicinale digestive, anti fongique et anti infectieus.",
   medecine2: "En usage externe :  L'huile essentielle de menthe sylvestre peut être employée par voie externe sur les mycoses cutanées. Mais attention à ne pas l'utiliser chez les enfants en bas âge ni chez les femmes enceintes.")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/menthesylvestre.jpeg"))
-menthesylvestre.photo.attach(io: file, filename: "menthesylvestre.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/menthesylvestre.jpg"))
+menthesylvestre.photo.attach(io: file, filename: "menthesylvestre.jpg", content_type: "image/jpeg")
 
 #Menthe aquatique
 mentheaquatique = Plant.create!(name: "Menthe Aquatique",
@@ -168,8 +168,8 @@ mentheaquatique = Plant.create!(name: "Menthe Aquatique",
   medecine4: "Tonus, calme les nerfs (utilisée en infusion)",
   medecine5: "Aide avec les migraines, les insomnies")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/mentheaquatique.jpeg"))
-mentheaquatique.photo.attach(io: file, filename: "mentheaquatique.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/mentheaquatique.jpg"))
+mentheaquatique.photo.attach(io: file, filename: "mentheaquatique.jpg", content_type: "image/jpeg")
 
 #Menthe des champs
 menthedeschamps = Plant.create!(name: "Menthe des Champs",
@@ -193,8 +193,8 @@ menthedeschamps = Plant.create!(name: "Menthe des Champs",
   medecine: "Propriétés antiseptiques",
   medecine2: "Bénéfique pour la digestion",
   medecine3: "Traitement de la fièvre, maux de tête, troubles digestifs (en thé)")
-file = File.open(Rails.root.join("db/seeds/images/plants/menthedeschamps.jpeg"))
-menthedeschamps.photo.attach(io: file, filename: "menthedeschamps.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/menthedeschamps.jpg"))
+menthedeschamps.photo.attach(io: file, filename: "menthedeschamps.jpg", content_type: "image/jpeg")
 
 #Basilic
 basilic = Plant.create!(name: "Basilic",
@@ -222,8 +222,8 @@ basilic = Plant.create!(name: "Basilic",
   medecine4: "Anti ballonnement et crampes d'estomac : mettre une dizaine de feuilles fraîches de basilic dans une casserole d'eau chaude pour infusion. Une tisane par jour après manger de temps en temps soulagera.",
   medecine5: "L'huile essentielle de basilic : indiquée en cas de contractures musculaires (en mélange avec une huile végétale à appliquer sur la peau), d'arthrite, de céphalée ou de règles douloureuses. Elle renforce du système immunitaire et est recommandée contre les infections des voies respiratoires.",
   medecine6: "L'huile essentielle de basilic tropical : recommandée en cas d'anxiété, d'insomnie ou de tension nerveuse ainsi que pour les troubles digestifs")
-file = File.open(Rails.root.join("db/seeds/images/plants/basilic.jpeg"))
-basilic.photo.attach(io: file, filename: "basilic.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/basilic.jpg"))
+basilic.photo.attach(io: file, filename: "basilic.jpg", content_type: "image/jpeg")
 
 #Basilic Americain
 ocimumamericanum = Plant.create!(name: "Basilic Americain",
@@ -251,8 +251,8 @@ ocimumamericanum = Plant.create!(name: "Basilic Americain",
   medecine4: "Anti ballonnement et crampes d'estomac : mettre une dizaine de feuilles fraîches de basilic dans une casserole d'eau chaude pour infusion. Une tisane par jour après manger de temps en temps soulagera.",
   medecine5: "L'huile essentielle de basilic : indiquée en cas de contractures musculaires (en mélange avec une huile végétale à appliquer sur la peau), d'arthrite, de céphalée ou de règles douloureuses. Elle renforce du système immunitaire et est recommandée contre les infections des voies respiratoires.",
   medecine6: "L'huile essentielle de basilic tropical : recommandée en cas d'anxiété, d'insomnie ou de tension nerveuse ainsi que pour les troubles digestifs")
-file = File.open(Rails.root.join("db/seeds/images/plants/ocimumamericanum.jpeg"))
-ocimumamericanum.photo.attach(io: file, filename: "ocimumamericanum.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/ocimumamericanum.jpg"))
+ocimumamericanum.photo.attach(io: file, filename: "ocimumamericanum.jpg", content_type: "image/jpeg")
 
 #Crosne du Japon
 crosnedujapon = Plant.create!(name: "Crosne du Japon",
@@ -273,8 +273,8 @@ crosnedujapon = Plant.create!(name: "Crosne du Japon",
   toxicite: "Non toxique",
   trouver: "Il pousse dans tous les sols mais il est bien plus aisé de récolter ses racines dans un terrain léger.",
   medecine: "Le crosne est source de calcium, nécessaire pour maintenir les os et les dents en bonne santé.")
-file = File.open(Rails.root.join("db/seeds/images/plants/crosnedujapon.jpeg"))
-crosnedujapon.photo.attach(io: file, filename: "crosnedujapon.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/crosnedujapon.jpg"))
+crosnedujapon.photo.attach(io: file, filename: "crosnedujapon.jpg", content_type: "image/jpeg")
 
 #Epilobe Rose
 epiloberose = Plant.create!(name: "Epilobe Rosé",
@@ -296,8 +296,8 @@ epiloberose = Plant.create!(name: "Epilobe Rosé",
   trouver: "Lieux frais ou humides, dans une grande partie de la France ; rare dans l'Ouest et le Midi. L'épilobe pousse dans les sous-bois, les lisières de forêts, les clairières des forêts d'altitude.",
   medecine: "L'Epilobe Rosé est principalement utilisé par l'homme comme supplément à base de plantes dans le traitement des troubles de la prostate, de la vessie (incontinence) et des troubles hormonaux.",
   medecine2: "Des vertus anti-inflammatoires et digestives lui sont aussi attribuées.")
-file = File.open(Rails.root.join("db/seeds/images/plants/epiloberose.jpeg"))
-epiloberose.photo.attach(io: file, filename: "epiloberose.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/epiloberose.jpg"))
+epiloberose.photo.attach(io: file, filename: "epiloberose.jpg", content_type: "image/jpeg")
 
 #Sauge farineuse
 saugefarineuse = Plant.create!(name: "Sauge Farineuse",
@@ -325,6 +325,28 @@ saugefarineuse = Plant.create!(name: "Sauge Farineuse",
 file = File.open(Rails.root.join("db/seeds/images/plants/saugefarineuse.jpg"))
 saugefarineuse.photo.attach(io: file, filename: "saugefarineuse.jpg", content_type: "image/jpeg")
 
+#Sauge des devins
+saugedesdevins = Plant.create!(name: "Sauge des devins",
+  species: "Lamiaceae",
+  idapi: "Salvia divinorum",
+  infos: "La Sauge des devins est une plante originaire du Mexique. Elle est connue pour ses effets psychotropes ; elle est utilisée dans un cadre mystique traditionnellement chez les Mazatèques lors de rites religieux de divination et de curation.",
+  fun_facts: "C'est Jean Bassett Johnston qui a répertorié pour la première fois cette espèce en 1939 lors d'une étude sur les rituels consacrés aux champignons chez les Indiens mazatèques. Elle a été trouvée dans les ravines humides de la province d'Oaxaca au Mexique même si son origine reste inconnue. En effet, il semble que ces spécimens ne proviennent que de plantations des chamans locaux.",
+  entretien: "Niveau de soin : Intermédiaire",
+  arrosage: "Chaque jour",
+  composition_du_sol: "Riche ou argileux",
+  humidite_du_sol: "Humide",
+  temperature_min: "20°C",
+  cuisine: "A ne pas utiliser en cuisine à cause de ses fortes propriétées psychotrope ! ",
+  taille: "0,3 à 0,9 m",
+  exposition: "Ombragée",
+  floraison: "Mai à Août",
+  toxicite: "La consommation excessive de certaines espèces peut être toxique.",
+  trouver: "Elle peut se trouver dans les milieux semi-tropicaux, où l'humidité est très élevée",
+  medecine: "Le principe actif de la Salvorine-A aide à traiter la dépendance à certaines drogues tel que la cocaïne. Veuillez consulter votre médecin avant d'en consommer.",
+  medecine2: "Antispasmodique, ce végétal soulage les problèmes digestifs.",)
+file = File.open(Rails.root.join("db/seeds/images/plants/saugedesdevins.jpg"))
+saugedesdevins.photo.attach(io: file, filename: "saugedesdevins.jpg", content_type: "image/jpeg")
+
 menthavillosa = Plant.create!(name: "Menthe Velue",
   species: "Plante",
   idapi: "Mentha × villosa",
@@ -343,8 +365,8 @@ menthavillosa = Plant.create!(name: "Menthe Velue",
   trouver: "Cette variété est parfaitement résistante au froid et ne demande pas d’entretien. On la trouve dans les fossés, les lieux humides, les jardins arrosés",
   medecine: "Outre ses propriétés culinaires, la menthe possède de nombreuses vertus: en infusion, elle est tonique, apéritive, elle facilite la digestion, soigne les problèmes de bronches, calme les nerfs, les crampes, les migraines et les insomnies.")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/menthavillosa.jpeg"))
-menthavillosa.photo.attach(io: file, filename: "menthavillosa.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/menthavillosa.jpg"))
+menthavillosa.photo.attach(io: file, filename: "menthavillosa.jpg", content_type: "image/jpeg")
 
 cerisierdecoree = Plant.create!(name: "Cerisier de Corée",
   species: "Plante",
@@ -365,8 +387,8 @@ cerisierdecoree = Plant.create!(name: "Cerisier de Corée",
   medecine: "En petites quantités, il a été démontré que le cyanure d'hydrogène que le cerisier contient stimule la respiration et améliore la digestion",
   medecine2: "Les amandes sont apéritives, carminatives, démulcrantes, désobstruantes, diurétiques, hypotensives, laxatives, lénitives et ophtalmiques. Elles sont prises en interne dans le traitement de la constipation sèche, de l'œdème et de l'insomnie à la suite d'un traumatisme. La racine est utilisée dans le traitement de la constipation, de la fièvre infantile, des oxyures et des affections dentaires.")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/cerisierdecoree.jpeg"))
-cerisierdecoree.photo.attach(io: file, filename: "cerisierdecoree.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/cerisierdecoree.jpg"))
+cerisierdecoree.photo.attach(io: file, filename: "cerisierdecoree.jpg", content_type: "image/jpeg")
 
 porteepee = Plant.create!(name: "Porte-épée",
   species: "Plante",
@@ -387,8 +409,8 @@ porteepee = Plant.create!(name: "Porte-épée",
   trouver: "En pleine terre, cette plante ne poussera que dans les climats tropicaux, de préférence arides, mais les spécimens cultivés comme plantes d’intérieur seront très à l’aise en plein air l’été dans un emplacement protégé du soleil le plus intense.",
   medecine: "Elle est traditionnellement utilisée en Malaisie et au Bangladesh pour traiter les douleurs et la fièvre.")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/porteepee.jpeg"))
-porteepee.photo.attach(io: file, filename: "porteepee.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/porteepee.jpg"))
+porteepee.photo.attach(io: file, filename: "porteepee.jpg", content_type: "image/jpeg")
 
 languedebellemere = Plant.create!(name: "Langue de belle mère",
   species: "Plante",
@@ -408,8 +430,8 @@ languedebellemere = Plant.create!(name: "Langue de belle mère",
   trouver: "En pleine terre, cette plante ne poussera que dans les climats tropicaux, de préférence arides, mais les spécimens cultivés comme plantes d’intérieur seront très à l’aise en plein air l’été dans un emplacement protégé du soleil le plus intense.",
   medecine: "Cette plante dépolluante a la particularité de filtrer l'air. Elle purifie l'air notamment la nuit en produisant beaucoup d'oxygène. Et ses longues feuilles éliminent les toxines (Adieu formaldéhyde, benzène, toluène, trichloréthylène et xylène).")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/languedebellemere.jpeg"))
-languedebellemere.photo.attach(io: file, filename: "languedebellemere.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/languedebellemere.jpg"))
+languedebellemere.photo.attach(io: file, filename: "languedebellemere.jpg", content_type: "image/jpeg")
 
 sansevieriastuckyi = Plant.create!(name: "Sansevière bâton",
   species: "Plante",
@@ -430,8 +452,8 @@ sansevieriastuckyi = Plant.create!(name: "Sansevière bâton",
   trouver: "En pleine terre, cette plante ne poussera que dans les climats tropicaux, de préférence arides, mais les spécimens cultivés comme plantes d’intérieur seront très à l’aise en plein air l’été dans un emplacement protégé du soleil le plus intense.",
   medecine: "Elle est traditionnellement utilisée en Malaisie et au Bangladesh pour traiter les douleurs et la fièvre.")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/sansevieriastuckyi.jpeg"))
-sansevieriastuckyi.photo.attach(io: file, filename: "sansevieriastuckyi.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/sansevieriastuckyi.jpg"))
+sansevieriastuckyi.photo.attach(io: file, filename: "sansevieriastuckyi.jpg", content_type: "image/jpeg")
 
 sansevieriazeylanica = Plant.create!(name: "Sansevieria Zeylanica",
   species: "Plante",
@@ -451,8 +473,8 @@ sansevieriazeylanica = Plant.create!(name: "Sansevieria Zeylanica",
   trouver: "En pleine terre, cette plante ne poussera que dans les climats tropicaux, de préférence arides, mais les spécimens cultivés comme plantes d’intérieur seront très à l’aise en plein air l’été dans un emplacement protégé du soleil le plus intense.",
   medecine: "Cette plante dépolluante a la particularité de filtrer l'air. Elle purifie l'air notamment la nuit en produisant beaucoup d'oxygène. Et ses longues feuilles éliminent les toxines (Adieu formaldéhyde, benzène, toluène, trichloréthylène et xylène).")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/sansevieriazeylanica.jpeg"))
-sansevieriazeylanica.photo.attach(io: file, filename: "sansevieriazeylanica.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/sansevieriazeylanica.jpg"))
+sansevieriazeylanica.photo.attach(io: file, filename: "sansevieriazeylanica.jpg", content_type: "image/jpeg")
 
 aloerivierei = Plant.create!(name: "Aloe Rivierei",
   species: "Plante",
@@ -472,8 +494,8 @@ aloerivierei = Plant.create!(name: "Aloe Rivierei",
   trouver: "",
   medecine: "")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/aloerivierei.jpeg"))
-aloerivierei.photo.attach(io: file, filename: "aloerivierei.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/aloerivierei.jpg"))
+aloerivierei.photo.attach(io: file, filename: "aloerivierei.jpg", content_type: "image/jpeg")
 
 lepechiniacalycina = Plant.create!(name: "Baume des bois",
   species: "Plante",
@@ -493,8 +515,8 @@ lepechiniacalycina = Plant.create!(name: "Baume des bois",
   trouver: "On peut la retrouver surtout en Californie, dans les pentes rocheuses, canyons et crêtes",
   medecine: "Elle contient des antioxydants et a de nombreuses utilisations médicinales, la plus intéressante étant une crème solaire de base lorsqu'elle est combinée avec du Chaparral (Larrea tridentat) et de l'huile d'olive.")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/lepechiniacalycina.jpeg"))
-lepechiniacalycina.photo.attach(io: file, filename: "lepechiniacalycina.jpeg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/lepechiniacalycina.jpg"))
+lepechiniacalycina.photo.attach(io: file, filename: "lepechiniacalycina.jpg", content_type: "image/jpeg")
 
 aildesours = Plant.create!(name: "Ail des ours",
   species: "Fleur",
@@ -582,18 +604,49 @@ camomille.photo.attach(io: file, filename: "camomille.jpg", content_type: "image
 
 puts "Associate user & flowers"
 
-
 userplants1 = UserPlant.create!(user: chantal, plant: basilic)
 userplants2 = UserPlant.create!(user: chantal, plant: reinedespres)
 userplants3 = UserPlant.create!(user: chantal, plant: aubepine)
 userplants4 = UserPlant.create!(user: chantal, plant: lavandepapillon)
 userplants5 = UserPlant.create!(user: chantal, plant: aildesours)
 
-plantloc1 = PlantLocation.create!(latitude: 47.131951955272505, longitude: -1.6941922066009414, plant: aubepine, user_plant: userplants3)
-plantloc2 = PlantLocation.create!(latitude: 47.20053071941626, longitude:-1.580310463930999, plant: aildesours, user_plant: userplants5)
-plantloc3 = PlantLocation.create!(latitude: 47.224167182693506, longitude:-1.5822665824085338, plant: basilic, user_plant: userplants1)
-plantloc4 = PlantLocation.create!(latitude: 47.127402318271855, longitude: -1.6744793619236116, plant: reinedespres, user_plant: userplants2)
-plantloc5 = PlantLocation.create!(latitude: 47.10258029446564, longitude:-2.073020656482966, plant: lavandepapillon, user_plant: userplants4)
+puts "Searching flowers"
+
+plantloc1 = PlantLocation.create!(latitude: 47.131951955272505, longitude: -1.6941922066009414, plant: aubepine)
+plantloc2 = PlantLocation.create!(latitude: 47.20053071941626, longitude:-1.580310463930999, plant: aildesours)
+plantloc3 = PlantLocation.create!(latitude: 47.224167182693506, longitude:-1.5822665824085338, plant: basilic)
+plantloc4 = PlantLocation.create!(latitude: 47.127402318271855, longitude: -1.6744793619236116, plant: reinedespres)
+plantloc5 = PlantLocation.create!(latitude: 47.10258029446564, longitude:-2.073020656482966, plant: lavandepapillon)
+plantloc6 = PlantLocation.create!(latitude: 47.30585725399728, longitude:-1.9664226019547397, plant: mentheverte)
+plantloc7 = PlantLocation.create!(latitude: 47.2148822346923, longitude:-1.4930743500631412, plant: mentheaquatique)
+plantloc8 = PlantLocation.create!(latitude: 47.21368739324957, longitude:-1.5188416123179, plant: basilic)
+plantloc9 = PlantLocation.create!(latitude: 47.28619121300331, longitude:-1.4885209166811701, plant: crosnedujapon)
+plantloc10 = PlantLocation.create!(latitude: 47.182689499278595, longitude:-1.8900855206020841, plant: epiloberose)
+plantloc11 = PlantLocation.create!(latitude: 47.23843855366628, longitude:-1.9237918861248384, plant: saugefarineuse)
+plantloc12 = PlantLocation.create!(latitude: 47.203104434750834, longitude:-1.6350895379516799, plant: menthavillosa)
+plantloc13 = PlantLocation.create!(latitude: 47.25137191797781, longitude:-1.7193554517585665, plant: languedebellemere)
+plantloc14 = PlantLocation.create!(latitude: 47.12570905033032, longitude:-1.6833232937048248, plant: sansevieriastuckyi)
+plantloc15 = PlantLocation.create!(latitude: 47.24364491612167, longitude:-1.6342921233696273, plant: sansevieriazeylanica)
+plantloc16 = PlantLocation.create!(latitude: 47.203106858460956, longitude:-1.5690593489236688, plant: aildesours)
+plantloc17 = PlantLocation.create!(latitude: 47.037274460729364, longitude:-1.9860492859400787, plant: lavandepapillon)
+plantloc18 = PlantLocation.create!(latitude: 47.30046218376317, longitude:-1.387869011559992, plant: agapanthe)
+plantloc19 = PlantLocation.create!(latitude: 47.34757039248764, longitude:-1.5319780156599019, plant: eucalyptus)
+plantloc20 = PlantLocation.create!(latitude: 47.38511124414201, longitude:-1.6662807865780518, plant: reinedespres)
+plantloc21 = PlantLocation.create!(latitude: 47.249530242010685, longitude:-1.5379506889803103, plant: menthesylvestre)
+plantloc22 = PlantLocation.create!(latitude: 47.23617271596168, longitude:-1.5777158502225925, plant: mentheodorante)
+plantloc23 = PlantLocation.create!(latitude: 47.20241238461933, longitude:-1.4915580008643141, plant: menthepoivree)
+plantloc24 = PlantLocation.create!(latitude: 47.26091663055554, longitude:-1.5628039147567365, plant: mentheverte)
+plantloc25 = PlantLocation.create!(latitude: 47.18222066375242, longitude:-1.5698505048814346, plant: menthedeschamps)
+plantloc26 = PlantLocation.create!(latitude: 47.34727573263392, longitude:-1.8261468826250875, plant: menthesylvestre)
+plantloc27 = PlantLocation.create!(latitude: 47.27632392728993, longitude:-1.8774027638118542, plant: lepechiniacalycina)
+plantloc28 = PlantLocation.create!(latitude: 47.36897663096782, longitude:-1.9162006183212816, plant: bougainvilliers)
+plantloc29 = PlantLocation.create!(latitude: 47.30375663507428, longitude:-1.4671358454137444, plant: acanthe)
+plantloc30 = PlantLocation.create!(latitude: 47.2300876890489, longitude:-1.4525421575105413, plant: calypso)
+plantloc31 = PlantLocation.create!(latitude: 47.247729261678344, longitude:-1.3753023921110386, plant: ortie)
+plantloc32 = PlantLocation.create!(latitude: 47.14808614308398, longitude:-2.2160412167400505, plant: camomille)
+plantloc33 = PlantLocation.create!(latitude: 47.17543406800818, longitude:-2.0850539648183126, plant: dionee)
+plantloc34 = PlantLocation.create!(latitude: 47.20566979854313, longitude:-2.134530127908317, plant: laurierrose)
+plantloc35 = PlantLocation.create!(latitude: 47.15171720893745, longitude:-1.990372962070535, plant: aloerivierei)
 
 
 puts "Everything is beautiful"
