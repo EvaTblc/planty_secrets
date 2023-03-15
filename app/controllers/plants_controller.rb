@@ -88,7 +88,7 @@ class PlantsController < ApplicationController
           lng: plant_location.longitude,
           info_window_html: render_to_string(partial: "info_window", locals: { plant_location: plant_location }),
           marker_html: render_to_string(partial: "marker")
-        }
+        } if location
 
         @markers << marker
       end
