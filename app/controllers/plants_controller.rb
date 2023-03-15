@@ -82,7 +82,8 @@ class PlantsController < ApplicationController
     @markers =
       [
         lat: location[0].latitude,
-        lng: location[0].longitude
+        lng: location[0].longitude,
+        marker_html: render_to_string(partial: "marker")
       ]
   end
 
