@@ -22,19 +22,10 @@
       </div>
     </div>
       <div class="d-flex flex-column">
-        <div class="grille-infos border-right">
+        <div class="grille-infos">
           <div class="d-flex flex-column justify-content-center align-items-center mt-3">
             <h2><%= @favorites.all.count %></h2>
             <p class="text-infos text-gray"><%= @favorites.all.count > 1 ? "Favori".pluralize : "Favori" %></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="d-flex flex-column">
-        <div class="grille-infos">
-          <div class="d-flex flex-column justify-content-center align-items-center mt-3">
-            <i class="fa-solid fa-map-location-dot justify-content-center mb-1 mt-1"></i>
-            <p class="mt-2 text-gray">Ma carte</p>
           </div>
         </div>
       </div>
