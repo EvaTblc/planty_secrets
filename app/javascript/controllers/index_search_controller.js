@@ -3,9 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="index-search"
 export default class extends Controller {
   static targets = ["form", "input", "list"]
-  connect() {
-    console.log(this.listTarget);
-  }
 
   update (event) {
     event.preventDefault

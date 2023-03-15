@@ -7,7 +7,6 @@ class PlantsController < ApplicationController
     else
       @plants = current_user.plants
     end
-    # @favorites = Favorite.where(user: current_user)
     @favorites_plants = current_user.favorites_plants
 
     respond_to do |format|
@@ -21,6 +20,28 @@ class PlantsController < ApplicationController
   end
 
   def map
+    if params[:query].present?
+      @plant_locations = PlantLocation.search_in_map(params[:query])
+    else
+      @plant_locations = PlantLocation.all
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render map_plants_path, formats: [:html] }
+    end
+
+    @markers = []
+    @plant_locations.find_each do |plant_location|
+      marker = {
+        lat: plant_location.latitude,
+        lng: plant_location.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { plant_location: plant_location }),
+        marker_html: render_to_string(partial: "marker")
+      }
+
+      @markers << marker
+    end
   end
 
   def create

@@ -1,0 +1,17 @@
+<%= link_to plant_path(plant_location.plant) do %>
+  <div class="card plant-card">
+    <%= cl_image_tag plant_location.plant.photo.key, class: "plant-img"%>
+    <div class="card-body plant-body">
+      <div class="d-flex justify-content-between">
+        <h3 class="card-title plant-title text-green"><%= plant_location.plant.name %></h3>
+        <% favorite = Favorite.where(user: current_user, plant: plant_location.plant) %>
+        <% favorite.each do |fav| %>
+          <% if fav.plant_id == plant_location.plant.id %>
+            <i class="fa-solid fa-heart fa-lg --fa-full-color mt-2"></i>
+          <% end %>
+        <% end %>
+      </div>
+      <p class="card-text plant-text">France</p>
+    </div>
+  </div>
+<% end %>
