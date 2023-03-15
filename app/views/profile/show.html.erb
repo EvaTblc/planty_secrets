@@ -59,13 +59,18 @@
             <%= f.submit "Ajouter", class:"btn btn-primary mb-2" %>
           <% end %>
 
-
+          <%if current_user.lists.empty? %>
+            <div class="new-profile-carte mt-5">
+              <h5>Vous n'avez pas encore de liste... 😢</h5>
+              <h6>Créez-en pour regrouper vos favoris par catégorie.</h6>
+            </div>
+          <% else %>
             <div data-add-list-target="infos">
               <% current_user.lists.each do |list| %>
               <div class="card-list-profile mt-2">
                 <%= link_to user_list_path(current_user, list) do %>
                 <div class="card-list-text">
-                  <h2 class="pt-2"><%= list.name %></h2>
+                  <h2 class="pt-3"><%= list.name %></h2>
 
                   <div class="d-flex justify-content-end">
                   <%= link_to user_list_path(current_user, list), data: {turbo_method: :delete} do %>
@@ -77,6 +82,8 @@
               </div>
               <% end %>
             </div>
+          <% end %>
+
         </div>
 
       </div>
@@ -89,7 +96,7 @@
             <%= text_field_tag :query,
               params[:query],
               class: "form-control-new",
-              placeholder: "Cherchez votre plante favorite...",
+              placeholder: "Cherchez vos favoris...",
               data: {
                 favorite_search_target: "input",
                 action: "keyup->favorite-search#update"
