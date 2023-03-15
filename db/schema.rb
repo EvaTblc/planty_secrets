@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_081351) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_115657) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,14 +69,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_081351) do
   end
 
   create_table "plant_locations", force: :cascade do |t|
-    t.bigint "user_plant_id", null: false
     t.bigint "plant_id", null: false
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["plant_id"], name: "index_plant_locations_on_plant_id"
-    t.index ["user_plant_id"], name: "index_plant_locations_on_user_plant_id"
   end
 
   create_table "plants", force: :cascade do |t|
@@ -144,7 +142,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_081351) do
   add_foreign_key "favorites", "users"
   add_foreign_key "lists", "users"
   add_foreign_key "plant_locations", "plants"
-  add_foreign_key "plant_locations", "user_plants"
   add_foreign_key "user_plants", "plants"
   add_foreign_key "user_plants", "users"
 end

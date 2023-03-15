@@ -55,6 +55,8 @@ class PlantsController < ApplicationController
           found_plant = Plant.find_by(idapi: plant["species"]["scientificNameWithoutAuthor"])
           found_plant.score = ((plant["score"] * 100) / 1)
           found_plant.species = plant["species"]["scientificNameWithoutAuthor"]
+          file = URI.open(plant["images"][0]["url"]["o"])
+          found_plant.photo.attach(io: file, filename: "new_plant.jpg", content_type: "image/jpeg")
           found_plant.save
         else
           found_plant = Plant.create(idapi: plant["species"]["scientificNameWithoutAuthor"], name: plant["species"]["commonNames"][0], species: plant["species"]["scientificNameWithoutAuthor"], score:  (plant["score"] * 100) / 1)
@@ -77,14 +79,19 @@ class PlantsController < ApplicationController
   def show
     @plant = Plant.find(params[:id])
     @userplant = UserPlant.find_or_create_by(plant: @plant, user: current_user)
+    @plantlocations = PlantLocation.where(plant: @plant)
 
-    location = PlantLocation.find_by(plant_id: params[:id])
-    @markers =
-      [
-        lat: location.latitude,
-        lng: location.longitude,
-        marker_html: render_to_string(partial: "marker")
-      ] if location
+      @markers = []
+      @plantlocations.each do |plant_location|
+        marker = {
+          lat: plant_location.latitude,
+          lng: plant_location.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: { plant_location: plant_location }),
+          marker_html: render_to_string(partial: "marker")
+        } if location
+
+        @markers << marker
+      end
   end
 
   private
