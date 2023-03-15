@@ -96,7 +96,9 @@
             <%= text_field_tag :query,
               params[:query],
               class: "form-control-new",
-              placeholder: "Cherchez vos favoris...",
+
+              placeholder: "Trouver mes plantes...",
+
               data: {
                 favorite_search_target: "input",
                 action: "keyup->favorite-search#update"

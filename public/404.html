@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>La page que vous recherchez n'existe pas (404)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-    .dialog {
-      height: 100vh;
-      padding: 20rem 20px;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      text-align: center;
+  <head>
+    <title>La page que vous recherchez n'existe pas (404)</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+      .dialog {
+        padding: 15rem 20px;
+        text-align: center;
       }
 
-    .titre {
-    font-family: 'Fjalla One', sans-serif;
-    color: #5F8D4E;
-    margin-bottom: 20px;
-    }
-
-    .sous-titre {
-      font-family: 'Fjalla One', sans-serif;
-      color:#285430;
-      margin-bottom: 20px;
+      .message {
+        margin-bottom: 40px;
       }
-  </style>
-</head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h2 class="titre">Page introuvable</h2>
-      <h5 class="sous-titre">Cette page restera un jardin secret...</h5>
+      .titre {
+        font-family: 'Fjalla One', sans-serif;
+        color: #5F8D4E;
+        margin-bottom: 20px;
+      }
+
+      .sous-titre {
+        font-family: 'Fjalla One', sans-serif;
+        color:#285430;
+        margin-bottom: 20px;
+      }
+
+      img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .back-btn {
+        font-family: 'Fjalla One', sans-serif;
+        background-color: #285430;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 15px;
+        text-decoration: none;
+        width: fit-content;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body class="rails-default-error-page">
+    <!-- This file lives in public/404.html -->
+    <div class="dialog">
+      <div class="message">
+        <img src="images/logo.png" alt="Logo">
+        <h2 class="titre">Page introuvable (404)</h2>
+        <h5 class="sous-titre">Cette page restera un jardin secret...</h5>
+      </div>
+      <a class="back-btn" href="/">Retour</a>
     </div>
-  </div>
-</body>
+  </body>
 </html>
