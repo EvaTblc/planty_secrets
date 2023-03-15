@@ -10,10 +10,9 @@ export default class extends Controller {
   update (event) {
     event.preventDefault();
     let labelVal = this.inputTarget.value;
-    
+
     if ( this.inputTarget.value ) {
-        console.log(this.inputTarget.value)
-      this.nomFichierTarget.innerText = labelVal;
+      this.nomFichierTarget.innerHTML = "<div><p>1 Planty trouvée</p></div>";
     } else {
       this.nomFichierTarget.innerText = "";
     }

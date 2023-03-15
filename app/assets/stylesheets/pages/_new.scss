@@ -55,11 +55,12 @@
 
 .form-label.file {
   margin: 20px;
+  margin-bottom: 0;
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
   background-size: cover;
-  border-bottom: 1px $dark-green solid;
+  box-shadow: 2px 2px 5px #BBBBBB;
   border-radius: 10px;
   display: inline-block;
   color: $dark-green;

@@ -5,6 +5,7 @@
     <div class="info-user d-flex flex-column justify-content-center ms-3">
       <h2><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h2>
       <h3 class="username">@<%= current_user.username %></h3>
+      <%= link_to ('Déconnexion <i class="fa-solid fa-right-from-bracket"></i>').html_safe, destroy_user_session_path, data: {turbo_method: :delete}, class: "deconnexion"%>
     </div>
     <div class="info-user icon-edit d-flex justify-content-center align-items-center pb-5 ms-2">
       <i class="fa-regular fa-pen-to-square"></i>
@@ -104,7 +105,7 @@
                 action: "keyup->favorite-search#update"
                 }
             %>
-            <%= submit_tag "Search", class: "btn btn-primary", id: "color-white" %>
+            <%= submit_tag "Search", class: "btn btn-primary search-btn ", id: "color-white" %>
           <% end %>
         </div>
           <h2 class="text-green alignement"> Plantes favorites 🪴 </h2>
