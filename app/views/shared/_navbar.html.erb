@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-0 fixed-bottom">
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-0 fixed-bottom <%= "no-bg" if current_page?(map_plants_path) %>">
     <div class="footer-container">
         <div class="nav-item icons <%= "active" if current_page?(map_plants_path) %>">
           <%= link_to "/plants/map" do %>
