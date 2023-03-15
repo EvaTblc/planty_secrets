@@ -3,7 +3,7 @@ import mapboxgl from "mapbox-gl"
 
 // Connects to data-controller="map-show"
 export default class extends Controller {
-  static targets = ["map", "plant"]
+  static targets = ["map", "plant", "name"]
   static values = {
     key: String,
     markers: Array
@@ -26,15 +26,13 @@ export default class extends Controller {
   }
 
   display() {
-    // this.mapTarget.classList.remove("d-none");
-    // this.plantTarget.classList.add("d-none");
+    this.nameTarget.classList.add("d-none");
     this.loadMap();
   }
 
   displaynone () {
-    // console.log(this.map);
     this.map.remove()
-    // this.mapTarget.classList.add("d-none");
+    this.nameTarget.classList.remove("d-none");
     // this.plantTarget.classList.remove("d-none");
   }
 
