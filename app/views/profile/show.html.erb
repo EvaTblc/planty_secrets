@@ -14,26 +14,26 @@
 
   <div class="infos-chiffre d-flex mt-4 justify-content-center">
     <div class="d-flex flex-column ">
-      <div class="grille-infos">
+      <div class="grille-infos border-right">
         <div class="d-flex flex-column justify-content-center align-items-center mt-3">
-          <h4><%= @plants.count %></h4>
-          <h5 class="text-infos"><%= @plants.count > 1 ? "Recherche".pluralize : "Recherche" %></h5>
+          <h2><%= @plants.count %></h2>
+          <p class="text-infos text-gray"><%= @plants.count > 1 ? "Recherche".pluralize : "Recherche" %></p>
         </div>
       </div>
     </div>
       <div class="d-flex flex-column">
-        <div class="grille-infos">
+        <div class="grille-infos border-right">
           <div class="d-flex flex-column justify-content-center align-items-center mt-3">
-            <h4><%= @favorites.all.count %></h4>
-            <h5 class="text-infos"><%= @favorites.all.count > 1 ? "Favori".pluralize : "Favori" %></h5>
+            <h2><%= @favorites.all.count %></h2>
+            <p class="text-infos text-gray"><%= @favorites.all.count > 1 ? "Favori".pluralize : "Favori" %></p>
           </div>
         </div>
       </div>
       <div class="d-flex flex-column">
         <div class="grille-infos">
           <div class="d-flex flex-column justify-content-center align-items-center mt-3">
-            <i class="fa-solid fa-map-location-dot justify-content-center mb-1"></i>
-            <h5 class="mt-2">Ma carte</h5>
+            <i class="fa-solid fa-map-location-dot justify-content-center mb-1 mt-1"></i>
+            <p class="mt-2 text-gray">Ma carte</p>
           </div>
         </div>
       </div>
@@ -53,9 +53,6 @@
   <div class="tab-content mt-3" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-listes" role="tabpanel" aria-labelledby="pills-listes-tab" tabindex="0">
       <div class="profile-carte pt-0">
-        <%# <h3>🌱Listes en cours d'implantation🌱</h3>
-        <h5>Bientôt disponible pour votre exploration</h5>
-        <p>Créez vos listes pour retrouver encore plus facilement vos plantes préférées !</p> %>
         <div data-controller="add-list">
         <div class="d-flex flex-row-reverse">
 
@@ -65,23 +62,24 @@
           <p class="mt-1 me-3" >Créer une liste</p>
         </div>
 
-          <div class="">
-          <%= simple_form_for [current_user, @list], html: {class: "form-control-new d-none", data: {add_list_target: "form"}} do |f| %>
+          <%= simple_form_for [current_user, @list], html: {class: "d-none", data: {add_list_target: "form"}} do |f| %>
             <%= f.input :name, label: "Nommez votre jardin 🌳" %>
             <%= f.submit "Ajouter", class:"btn btn-primary mb-2" %>
           <% end %>
-          </div>
+
 
             <div data-add-list-target="infos">
               <% current_user.lists.each do |list| %>
-              <div class="card-product mt-3">
+              <div class="card-list-profile mt-2">
                 <%= link_to user_list_path(current_user, list) do %>
-                <img src="https://images.unsplash.com/photo-1555037015-1498966bcd7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGxhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"/>
-                <div class="card-product-infos">
-                  <h2><%= list.name %></h2>
+                <div class="card-list-text">
+                  <h2 class="pt-2"><%= list.name %></h2>
+
+                  <div class="d-flex justify-content-end">
                   <%= link_to user_list_path(current_user, list), data: {turbo_method: :delete} do %>
-                  <h2><i class="fa-solid fa-trash card-trip-pricing"></i></h2>
+                  <h2><i class="fa-solid fa-trash"></i></h2>
                   <% end %>
+                  </div>
                 </div>
                 <% end %>
               </div>

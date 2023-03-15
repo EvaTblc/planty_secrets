@@ -8,14 +8,18 @@
 }
 
 .grille-infos {
-  border-top: 2px solid $pale-gray;
-  border-bottom: 2px solid $pale-gray;
+  border-top: 1px solid $pale-gray;
+  border-bottom: 1px solid $pale-gray;
   height: 80px;
   width: 130px;
   color: $dark-green;
   .text-infos {
     margin-top: -6px;
   }
+}
+
+.border-right {
+  border-right: 1px solid $pale-gray;
 }
 
 .deconnexion {
@@ -28,7 +32,7 @@
   padding-right: 40px;
   margin-top: 20px;
   margin-bottom: 0px;
-  border-bottom: 2px solid $pale-gray;
+  border-bottom: 1px solid $pale-gray;
   p {
     margin-bottom: 5px;
   }
@@ -188,4 +192,22 @@ a {
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.taille {
+  width: 340px;
+  height: 60px;
+  padding-bottom: 5px;
+}
+
+.card-list-profile {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.card-list-text {
+  padding-bottom: 5px;
+  padding-right: 10px;
 }
