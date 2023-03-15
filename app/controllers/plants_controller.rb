@@ -45,7 +45,7 @@ class PlantsController < ApplicationController
       end
       redirect_to results_plants_path(top: @top)
     else
-      redirect_to "/plants/new", status: :unprocessable_entity
+      redirect_to "/plants/new"
     end
   end
 

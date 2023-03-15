@@ -1,0 +1,5 @@
+meta_name: "Planty Secrets"
+meta_title: "Planty Secrets - Découvrez les secrets des plantes!"
+meta_description: "Que ce soit des vertus médicinales ou des informations insolites, explorez la nature qui vous entoure et révélez les secrets des plantes avec Planty Secrets!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@your_twitter_account"   # required for Twitter Cards
