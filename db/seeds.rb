@@ -1,8 +1,9 @@
 #Destroy
 puts "Kill flowers and users..."
 
-PlantLocation.destroy_all
+Bookmark.destroy_all
 Favorite.destroy_all
+PlantLocation.destroy_all
 List.destroy_all
 UserPlant.destroy_all
 User.destroy_all
@@ -589,7 +590,7 @@ userplants4 = UserPlant.create!(user: chantal, plant: lavandepapillon)
 userplants5 = UserPlant.create!(user: chantal, plant: aildesours)
 
 plantloc1 = PlantLocation.create!(latitude: 47.131951955272505, longitude: -1.6941922066009414, plant: aubepine, user_plant: userplants3)
-plantloc2 = PlantLocation.create!(latitude: 45.83309988858224, longitude:6.865046121653787, plant: aildesours, user_plant: userplants5)
+plantloc2 = PlantLocation.create!(latitude: 47.20053071941626, longitude:-1.580310463930999, plant: aildesours, user_plant: userplants5)
 plantloc3 = PlantLocation.create!(latitude: 47.224167182693506, longitude:-1.5822665824085338, plant: basilic, user_plant: userplants1)
 plantloc4 = PlantLocation.create!(latitude: 47.127402318271855, longitude: -1.6744793619236116, plant: reinedespres, user_plant: userplants2)
 plantloc5 = PlantLocation.create!(latitude: 47.10258029446564, longitude:-2.073020656482966, plant: lavandepapillon, user_plant: userplants4)

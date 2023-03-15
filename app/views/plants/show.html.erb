@@ -3,7 +3,7 @@
     data-map-show-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
   <div class="plant-photo" style="background-image: url(<%= cl_image_path @plant.photo.key %>)" data-map-show-target="plant">
-    <h1 class="text-center sticky-top plant-name"><%= @plant.name %></h1>
+    <h1 class="text-center sticky-top plant-name" data-map-show-target="name"><%= @plant.name %></h1>
     <div style="width: 100%; height: 600px;" class="bg-transparent" data-map-show-target="map"></div>
 
     <%= link_to plants_path, class:"btn-go-back" do %>

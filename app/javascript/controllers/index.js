@@ -25,5 +25,8 @@ application.register("loaders", LoadersController)
 import MapShowController from "./map_show_controller"
 application.register("map-show", MapShowController)
 
+import MapViewController from "./map_view_controller"
+application.register("map-view", MapViewController)
+
 import UploadsController from "./uploads_controller"
 application.register("uploads", UploadsController)
