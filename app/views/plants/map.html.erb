@@ -1,5 +1,18 @@
-<div class="future-carte">
-  <h2>🌱Carte en cours d'implantation🌱</h2>
-  <h5>Bientôt disponible pour votre exploration</h5>
-  <p>Ici vous pourrez retrouvez toutes les plantes identifiées autour de vous dans un rayon de 20km!</p>
+<div data-controller="map-view"
+    data-map-view-markers-value="<%= @markers.to_json %>"
+    data-map-view-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    class="map">
+
+
+    <div class="mt-2 mb-2 formulaire">
+      <%= form_with url: map_plants_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control-new",
+          placeholder: "Cherchez votre plante..." %>
+        <%= submit_tag "Recherche", class: "btn btn-primary search-btn me-3", id: "color-white" %>
+      <% end %>
+    </div>
+
+  <div style="width: 100%; height: 100vh;" data-map-view-target="map"></div>
 </div>
