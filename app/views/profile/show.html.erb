@@ -51,30 +51,39 @@
 
   <div class="tab-content mt-3" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-listes" role="tabpanel" aria-labelledby="pills-listes-tab" tabindex="0">
-      <div class="profile-carte">
+      <div class="profile-carte pt-0">
         <%# <h3>🌱Listes en cours d'implantation🌱</h3>
         <h5>Bientôt disponible pour votre exploration</h5>
         <p>Créez vos listes pour retrouver encore plus facilement vos plantes préférées !</p> %>
         <div data-controller="add-list">
+        <div class="d-flex flex-row-reverse">
+
           <button class="button-37" role="button">
           <i class="fa-solid fa-plus fa-xs ml-2" data-action="click->add-list#displayForm"></i>
           </button>
+          <p class="mt-1 me-3" >Créer une liste</p>
+        </div>
 
+          <div class="">
           <%= simple_form_for [current_user, @list], html: {class: "form-control-new d-none", data: {add_list_target: "form"}} do |f| %>
-            <%= f.input :name, label: "Nommez votre jardin" %>
-            <%= f.submit "Ajouter" %>
+            <%= f.input :name, label: "Nommez votre jardin 🌳" %>
+            <%= f.submit "Ajouter", class:"btn btn-primary mb-2" %>
           <% end %>
+          </div>
 
             <div data-add-list-target="infos">
               <% current_user.lists.each do |list| %>
-                <div class="card-list mb-3 mt-3">
-                  <%= link_to user_list_path(current_user, list) do %>
-                    <%= list.name %>
-                    <%= link_to user_list_path(current_user, list), data: {turbo_method: :delete} do %>
-                      <i class="fa-solid fa-trash"></i>
-                    <% end %>
+              <div class="card-product mt-3">
+                <%= link_to user_list_path(current_user, list) do %>
+                <img src="https://images.unsplash.com/photo-1555037015-1498966bcd7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGxhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"/>
+                <div class="card-product-infos">
+                  <h2><%= list.name %></h2>
+                  <%= link_to user_list_path(current_user, list), data: {turbo_method: :delete} do %>
+                  <h2><i class="fa-solid fa-trash card-trip-pricing"></i></h2>
                   <% end %>
                 </div>
+                <% end %>
+              </div>
               <% end %>
             </div>
         </div>
