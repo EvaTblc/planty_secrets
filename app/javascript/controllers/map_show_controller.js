@@ -38,6 +38,8 @@ export default class extends Controller {
     this.markersValue.forEach((marker) => {
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html
+      customMarker.classList.add("pb-5")
+      
       new mapboxgl.Marker(customMarker)
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(this.map)

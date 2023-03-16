@@ -605,6 +605,13 @@ file = File.open(Rails.root.join("db/seeds/images/plants/camomille.jpg"))
 camomille.photo.attach(io: file, filename: "camomille.jpg", content_type: "image/jpeg")
 # , latitude: 47.9305606391601, longitude: -2.675962086913407
 
+ciboulette = Plant.create!(name: "Ciboulette", species: "Plante", idapi: "Allium schoenoprasum", infos: "Les feuilles fraîches sont utilisées, crues, ciselées, pour aromatiser les crudités, les salades, et diverses préparations culinaires comme les autres fines herbes. Cuites, elles entrent aussi dans certaines recettes, sauces, omelettes... La ciboulette est un des ingrédients de la cervelle de canut. La ciboulette séchée ou lyophilisée n'est pas à conseiller, car elle perd une partie de son goût. Les fleurs peuvent être avantageusement utilisées, pour la décoration de salades ou même de plats en sauce ; elles peuvent aussi être conservées au vinaigre, comme les cornichons, mais elles perdent alors leur couleur.")
+file = File.open(Rails.root.join("db/seeds/images/plants/ciboulette.jpg"))
+ciboulette.photo.attach(io: file, filename: "ciboulette.jpg", content_type: "image/jpeg")
+
+thym = Plant.create!(name: "Thym", species: "Plante", idapi: "Thymus", infos: "Ces plantes sont riches en huiles essentielles et à ce titre font partie des plantes aromatiques. La principale huile essentielle du thym commun (Thymus vulgaris) est un terpénoïde qui lui doit son nom, le thymol, une substance bactéricide. Dans le sud de la France, le thym est aussi fréquemment appelé farigoule (de son nom provençal : farigoule).")
+file = File.open(Rails.root.join("db/seeds/images/plants/thym.jpg"))
+thym.photo.attach(io: file, filename: "thym.jpg", content_type: "image/jpeg")
 
 puts "Associate user & flowers"
 
@@ -652,5 +659,24 @@ plantloc33 = PlantLocation.create!(latitude: 47.17543406800818, longitude:-2.085
 plantloc34 = PlantLocation.create!(latitude: 47.20566979854313, longitude:-2.134530127908317, plant: laurierrose)
 plantloc35 = PlantLocation.create!(latitude: 47.15171720893745, longitude:-1.990372962070535, plant: aloerivierei)
 plantloc35 = PlantLocation.create!(latitude: 47.09092237794672, longitude:-2.0417051308094627, plant: lavandeofficinale)
+
+puts "Planting lists and favorites"
+list1 = List.create!(name:"Pour mon jardin")
+list2 = List.create!(name:"Aromates")
+
+favorite1 = Favorite.create!(user: chantal, plant: basilic)
+favorite2 = Favorite.create!(user: chantal, plant: thym)
+favorite3 = Favorite.create!(user: chantal, plant: ciboulette)
+favorite4 = Favorite.create!(user: chantal, plant: aildesours)
+favorite5 = Favorite.create!(user: chantal, plant: agapanthe)
+favorite6 = Favorite.create!(user: chantal, plant: agave)
+favorite7 = Favorite.create!(user: chantal, plant: porteepee)
+
+bookmark1 = Bookmark.create!(favorite: favorite7,list: list1)
+bookmark2 = Bookmark.create!(favorite: favorite6,list:list1)
+bookmark3 = Bookmark.create!(favorite: favorite2,list:list2)
+bookmark4 = Bookmark.create!(favorite: favorite4,list:list2)
+bookmark5 = Bookmark.create!(favorite: favorite3,list:list2)
+bookmark6 = Bookmark.create!(favorite: favorite1,list:list2)
 
 puts "Everything is beautiful"
