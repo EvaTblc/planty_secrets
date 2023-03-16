@@ -21,11 +21,11 @@
       </button>
     </div>
 
-    <div class="d-none" data-add-favorite-target = "list">
+    <div class="d-none mt-3" data-add-favorite-target = "list">
       <% @favoriteplants.each do |plant| %>
         <%= button_to user_list_bookmarks_path(current_user, @list, plant_id: plant), class:"btn-profile-none mb-4" do %>
-          <ul class="list-group mt-2">
-            <li class="list-group-item taille mt-2">
+          <ul class="list-group mb-3">
+            <li class="list-group-item-fav taille mt-2">
                 <h3 class="card-title text-green titre-profile"><%= plant.name %></h3>
                 <p class="text-gray nom-scientifique"><%= plant.idapi %></p>
                 <% favorite = Favorite.where(user: current_user, plant: @plants) %>

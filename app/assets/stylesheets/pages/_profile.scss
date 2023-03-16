@@ -253,3 +253,11 @@ a {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
+
+.list-group-item-fav {
+  list-style-type: none;
+  border: 0.5px solid $pale-gray;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px $pale-gray;
+  padding-top: 10px;
+}
