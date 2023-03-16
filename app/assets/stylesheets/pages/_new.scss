@@ -21,7 +21,7 @@
   padding: 20px;
 }
 
-.example-new {
+.photo-new {
   border-radius: 28px;
   width: 250px;
   height: auto;
@@ -31,8 +31,9 @@
 .alert-message {
   margin-top: 25px;
   margin-bottom:20px;
-  background-color: $dark-green;
-  color: white;
+  background-color: $beige;
+  color: $dark-green;
+  font-weight: 600;
   box-shadow: 0px 8px 20px rgba(214, 211, 192, 0.4);
   padding: 10px;
 }
