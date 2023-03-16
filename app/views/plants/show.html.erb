@@ -17,15 +17,17 @@
       <div class="d-flex justify-content-between">
         <h1 class="text-green"><%= @plant.name %></h1>
         <% favorite = Favorite.where(user_id: current_user.id, plant_id: @plant.id) %>
+
         <% if favorite.any? %>
           <%= link_to favorite_path(favorite.first.id), data: {turbo_method: :delete}, class:"me-1" do %>
           <i class="fa-solid fa-heart fa-xl --fa-full-color"></i>
           <% end %>
         <% else %>
-          <%= button_to plant_favorites_path(@plant), class:"likebutton" do %>
+          <%= link_to plant_favorites_path(@plant), data: { turbo_method: :post }, class:"likebutton" do %>
             <i class="fa-regular fa-heart fa-xl --fa-empty-color"></i>
           <% end %>
         <% end %>
+
       </div>
       <p class="text-gray"><%= @plant.idapi %></p>
     </div>
