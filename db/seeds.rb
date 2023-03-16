@@ -118,8 +118,8 @@ mentheafeuillesrondes = Plant.create!(name: "Menthe à feuilles rondes",
   medecine: "En usage interne :  La menthe à feuilles rondes est une plante médicinale digestive, stimulante de l'estomac, anti oxydante et anti infectieuse. On la conseillera contre les fermentations digestives (gaz, ballonnements, etc.).",
   medecine2: "En usage externe :  L'huile essentielle de menthe à feuilles rondes est un excellent insecticide, qu'on pourrait utiliser comme anti poux. Mais attention à ne pas l'utiliser chez les enfants en bas âge.")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/mentheafeuillesrondes.jpg"))
-mentheafeuillesrondes.photo.attach(io: file, filename: "mentheafeuillesrondes.jpg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/mentheafeuilleronde2.jpg"))
+mentheafeuillesrondes.photo.attach(io: file, filename: "mentheafeuilleronde2.jpg", content_type: "image/jpeg")
 
 #Menthe sylvestre
 menthesylvestre = Plant.create!(name: "Menthe Sylvestre",
