@@ -94,8 +94,8 @@ mentheodorante = Plant.create!(name: "Menthe Odorante",
   medecine: "En usage interne :  La menthe à feuilles rondes est une plante médicinale digestive, stimulante de l'estomac, anti oxydante et anti infectieuse. On la conseillera contre les fermentations digestives (gaz, ballonnements, etc.).",
   medecine2: "En usage externe :  L'huile essentielle de menthe à feuilles rondes est un excellent insecticide, qu'on pourrait utiliser comme anti poux. Mais attention à ne pas l'utiliser chez les enfants en bas âge.")
 
-file = File.open(Rails.root.join("db/seeds/images/plants/mentheodorante.jpg"))
-mentheodorante.photo.attach(io: file, filename: "mentheodorante.jpg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/plants/mentheafeuillesrondes.jpg"))
+mentheodorante.photo.attach(io: file, filename: "mentheafeuillesrondes.jpg", content_type: "image/jpeg")
 
 #Menthe à feuilles rondes
 mentheafeuillesrondes = Plant.create!(name: "Menthe à feuilles rondes",
@@ -542,6 +542,10 @@ file = File.open(Rails.root.join("db/seeds/images/plants/lavandepapillon.jpg"))
 lavandepapillon.photo.attach(io: file, filename: "lavandepapillon.jpg", content_type: "image/jpeg")
 # , latitude: 47.10258029446564, longitude:-2.073020656482966
 
+lavandeofficinale = Plant.create!(name: "Lavande officinale", species: "Fleur", idapi: "Lavandula angustifolia", infos: "La Lavande officinale, Lavande vraie ou Lavande à feuilles étroites (Lavandula angustifolia Mill.) est une espèce de sous-arbrisseaux de la famille des Lamiaceae. C'est une plante qui est appréciée pour son odeur. C'est la plus appréciée des lavandes pour la qualité olfactive de son huile essentielle. À l'état sauvage, elle pousse surtout en Provence mais elle peut être cultivée dans des régions plus septentrionales, d'autant qu'il en existe de nombreux cultivars.")
+file = File.open(Rails.root.join("db/seeds/images/plants/lavandeofficinale.jpg"))
+lavandeofficinale.photo.attach(io: file, filename: "lavandeofficinale.jpg", content_type: "image/jpeg")
+
 bougainvilliers = Plant.create!(name: "Bougainvilliers", species: "Fleur", idapi: "Bougainvillea")
 file = File.open(Rails.root.join("db/seeds/images/plants/bougainvilliers.jpg"))
 bougainvilliers.photo.attach(io: file, filename: "bougainvilliers.jpg", content_type: "image/jpeg")
@@ -647,6 +651,6 @@ plantloc32 = PlantLocation.create!(latitude: 47.14808614308398, longitude:-2.216
 plantloc33 = PlantLocation.create!(latitude: 47.17543406800818, longitude:-2.0850539648183126, plant: dionee)
 plantloc34 = PlantLocation.create!(latitude: 47.20566979854313, longitude:-2.134530127908317, plant: laurierrose)
 plantloc35 = PlantLocation.create!(latitude: 47.15171720893745, longitude:-1.990372962070535, plant: aloerivierei)
-
+plantloc35 = PlantLocation.create!(latitude: 47.09092237794672, longitude:-2.0417051308094627, plant: lavandeofficinale)
 
 puts "Everything is beautiful"

@@ -15,6 +15,7 @@
 .plant-card {
   width: 150px;
   margin: 5px;
+  height: 230px;
   border-radius: 10px;
   background-color: $beige;
   border-radius: 15px;
@@ -36,7 +37,7 @@
 }
 
 .plant-title {
-  font-size: 15px;
+  font-size: 16px;
   margin: 0;
 }
 
@@ -58,4 +59,13 @@ a {
 .form-control-new {
 	width: 100%;
   border: 1px solid $beige;
+}
+
+.heart {
+  margin-left: 15px;
+}
+
+.heart-list{
+  color: transparent;
+  background-color: transparent;
 }
