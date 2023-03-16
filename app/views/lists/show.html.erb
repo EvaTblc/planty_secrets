@@ -23,11 +23,11 @@
 
     <div class="d-none" data-add-favorite-target = "list">
       <% @favoriteplants.each do |plant| %>
-        <%= button_to user_list_bookmarks_path(current_user, @list, plant_id: plant), class:"btn-profile-none" do %>
+        <%= button_to user_list_bookmarks_path(current_user, @list, plant_id: plant), class:"btn-profile-none mb-4" do %>
           <ul class="list-group mt-2">
-            <li class="list-group-item taille">
-                <h3 class="card-title plant-title text-green"><%= plant.name %></h3>
-                <p class="text-gray"><%= plant.idapi %></p>
+            <li class="list-group-item taille mt-2">
+                <h3 class="card-title text-green titre-profile"><%= plant.name %></h3>
+                <p class="text-gray nom-scientifique"><%= plant.idapi %></p>
                 <% favorite = Favorite.where(user: current_user, plant: @plants) %>
                 <% favorite.each do |fav| %>
                   <% if fav.plant_id == plant.id %>
@@ -43,7 +43,7 @@
 
     <div class="row row-cols-2 ms-2 me-2 mt-3">
       <% @list.favorites.each do |favorite| %>
-      <div class="plant-card col ms-3 mb-3 p-0">
+      <div class="plant-card col ms-3 mb-3 mt-4 p-0">
         <%= cl_image_tag favorite.plant.photo.key, class: "plant-img"%>
           <div class="plant-body">
             <div class="d-flex justify-content-between">

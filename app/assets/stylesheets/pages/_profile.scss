@@ -195,19 +195,61 @@ a {
 }
 
 .taille {
-  width: 340px;
+  width: 355px;
   height: 60px;
   padding-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-.card-list-profile {
-  background-color: white;
+.nom-scientifique {
+  font-size: 15px;
+}
+
+.titre-profile {
+  font-size:18px;
+}
+
+.card-trip {
+  overflow: hidden;
+  background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
-  margin-bottom: 15px;
+  background-size: cover;
+  background-position: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  height: 120px;
+  display: flex;
+  align-items: center;
+
+  .card-trip-infos {
+    padding-left: 5px;
+    width: 100px;
+  }
 }
 
-.card-list-text {
-  padding-bottom: 5px;
-  padding-right: 10px;
+.icon-trash {
+  margin-left:160px;
+
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.plant-img-profile {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }

@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container pb-5">
 
-  <div class="bloc-user d-flex justify-content-start mt-5 ms-4">
+  <div class="bloc-user d-flex justify-content-start mt-3 ms-4">
     <img src="<%= cl_image_path current_user.photo.key %>" class="avatar-large" alt="avatar-large" />
     <div class="info-user d-flex flex-column justify-content-center ms-3">
       <h2><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h2>
@@ -65,27 +65,32 @@
               <h6>Créez-en pour regrouper vos favoris par catégorie.</h6>
             </div>
           <% else %>
-            <div data-add-list-target="infos">
+          <div data-add-list-target="infos">
               <% current_user.lists.each do |list| %>
-              <div class="card-list-profile mt-2">
                 <%= link_to user_list_path(current_user, list) do %>
-                <div class="card-list-text">
-                  <h2 class="pt-3"><%= list.name %></h2>
-
-                  <div class="d-flex justify-content-end">
-                  <%= link_to user_list_path(current_user, list), data: {turbo_method: :delete} do %>
-                  <h2><i class="fa-solid fa-trash"></i></h2>
+                <div class="card-trip mt-3">
+                  <% if list.favorites.empty? %>
+                    <img src="https://images.unsplash.com/photo-1555037015-1498966bcd7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGxhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" class="plant-img-profile" />
+                  <% else %>
+                    <%= cl_image_tag list.favorites.first.plant.photo.key, class: "plant-img-profile"%>
                   <% end %>
-                  </div>
-                </div>
+                    <div class="list-infos text-left">
+                        <div class="card-trip-infos">
+                          <h2 class="pt-3"><%= list.name %></h2>
+                          <p><%= list.favorites.count %> <%= list.favorites.count > 1 ? "plantes".pluralize : "plante"%></p>
+                        </div>
+                        <h2 class="card-trip-pricing">
+                          <%= link_to user_list_path(current_user, list), data: {turbo_method: :delete} do %>
+                          <p><i class="fa-solid fa-trash fa-lg icon-trash"></i></p>
+                          <% end %>
+                        </h2>
+                    </div>
                 <% end %>
-              </div>
+                </div>
               <% end %>
             </div>
           <% end %>
-
         </div>
-
       </div>
     </div>
 
@@ -119,7 +124,4 @@
       </div>
     </div>
   </div>
-
-
-
 </div>
