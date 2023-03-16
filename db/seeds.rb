@@ -12,8 +12,8 @@ Plant.destroy_all
 #User
 puts "Planting users..."
 chantal = User.create!(first_name: "Chantal", last_name: "Dubois", username: "chantal44", email: "chanchandu44@yahoo.com", password: "123456", latitude: 47.21636520138233, longitude: -1.5487715621281937)
-file = File.open(Rails.root.join("db/seeds/images/user/chantal.jpg"))
-chantal.photo.attach(io: file, filename: "chantal.jpg", content_type: "image/jpeg")
+file = File.open(Rails.root.join("db/seeds/images/user/photo-profil.jpg"))
+chantal.photo.attach(io: file, filename: "photo-profil.jpg", content_type: "image/jpeg")
 
 #Plant
 puts "Planting flowers..."
