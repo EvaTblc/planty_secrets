@@ -661,8 +661,8 @@ plantloc35 = PlantLocation.create!(latitude: 47.15171720893745, longitude:-1.990
 plantloc35 = PlantLocation.create!(latitude: 47.09092237794672, longitude:-2.0417051308094627, plant: lavandeofficinale)
 
 puts "Planting lists and favorites"
-list1 = List.create!(name:"Pour mon jardin")
-list2 = List.create!(name:"Aromates")
+list1 = List.create!(name:"Pour mon jardin", user: chantal)
+list2 = List.create!(name:"Aromates", user: chantal)
 
 favorite1 = Favorite.create!(user: chantal, plant: basilic)
 favorite2 = Favorite.create!(user: chantal, plant: thym)
