@@ -49,9 +49,9 @@
         <div class="d-flex flex-row-reverse">
 
           <button class="button-37" role="button">
-          <i class="fa-solid fa-plus fa-xs ml-2" data-action="click->add-list#displayForm"></i>
+          <i class="fa-solid fa-plus fa-s ml-2" data-action="click->add-list#displayForm"></i>
           </button>
-          <p class="mt-1 me-3" >Créer une liste</p>
+          <p class="mt-2 me-3" >Créer une liste</p>
         </div>
 
           <%= simple_form_for [current_user, @list], html: {class: "d-none", data: {add_list_target: "form"}} do |f| %>

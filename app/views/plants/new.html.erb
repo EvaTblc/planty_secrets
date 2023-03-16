@@ -10,10 +10,10 @@
   <div class="photo-card-new mt-3 mx-2">
     <p class="text-center">Découvrez les secrets des plantes.</p>
     <div class="plant-card-new" data-controller="loaders">
-      <%= image_tag "eucalyptus-test.png", class:"example-new", data: { loaders_target: "image", action:"submit->loaders#loading"} %>
+      <%= image_tag "flower-2-new-form.png", class:"photo-new", data: { loaders_target: "image", action:"submit->loaders#loading"} %>
       <div class="loader d-none" data-loaders-target="loader"></div>
       <div class="alert-message text-center" role="alert">
-        Afin d'optimiser votre recherche, prenez en photo votre Planty de profil !
+        Afin d'optimiser votre recherche, prenez en photo votre Planty en gros plan !
       </div>
       <div class="container-form style-form-control">
         <div data-controller="uploads" class= "form-style">
@@ -28,10 +28,11 @@
                 }
               }
             %>
+            
             <p class="text-center" data-uploads-target="nomFichier"></p>
             <div class="form-actions mb-2 pt3 d-flex justify-content-center">
               <%= f.button :submit, "Rechercher",
-                class:"btn btn-primary mb-3 new-search-button",
+                class:"btn btn my-3 btn-info",
                 input_html: {
                   data: {
                     loaders_target: "search"

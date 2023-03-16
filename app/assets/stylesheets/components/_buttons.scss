@@ -32,11 +32,11 @@
 .button-37 {
   background-color: $middle-green;
   border :none;
-  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
-  color: #fff;
-  height: 35px;
-  width: 35px;
+  color: white;
 }
 
 .btn-profile-none {
@@ -49,4 +49,20 @@
 
 .new-search-button {
   border-radius: 20px;
+  background-color: $pale-green;
+  color: $dark-green;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.btn-info {
+  border-radius: 20px;
+  background-color: $middle-green;
+  color: $white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-weight: 500;
 }
