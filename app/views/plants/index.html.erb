@@ -1,11 +1,11 @@
 <div class="index-container">
   <div class="planty-container">
-    <%= image_tag "logo.png", class:"planty-image"%>
+    <%= image_tag "leafbanner.png", class:"planty-image"%>
   </div>
-  <h1>Découvre de nouvelles plantes!</h1>
+  <h1 class="ms-4">Découvre de nouvelles plantes!</h1>
 
   <div class="div index-display", data-controller="index-search">
-    <div class="mt-4 mb-4 formulaire form-index-search">
+    <div class="mb-3 formulaire form-index-search">
       <%= form_with url: plants_path, method: :get, html: { data: {index_search_target: "form"}}, class: "d-flex" do %>
         <%= text_field_tag :query,
           params[:query],
@@ -19,13 +19,12 @@
         <%= submit_tag "Recherche", class: "btn btn-primary search-btn", id: "color-white" %>
       <% end %>
     </div>
-
-    <h2> Dernières recherches 🌿</h2>
+      <h2 class="ms-2"> Dernières recherches 🌿</h2>
     <div class="latest-research-container">
       <%= render "plants/list" %>
   </div>
   <div class="index-favorites">
-    <h2> Plantes favorites 🪴 </h2>
+    <h2 class="ms-2"> Plantes favorites 🪴 </h2>
     <div class="latest-research-container">
       <%= render "plants/favoriteslist" %>
     </div>

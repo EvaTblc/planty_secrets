@@ -1,7 +1,7 @@
 <div class="plant-row", data-index-search-target="list">
   <% @plants.each do |plant| %>
     <%= link_to plant_path(plant) do %>
-      <div class="card plant-card">
+      <div class="plant-card">
         <%= cl_image_tag plant.photo.key, class: "plant-img"%>
         <div class="card-body plant-body">
           <div class="d-flex justify-content-between">
@@ -9,7 +9,7 @@
             <% favorite = Favorite.where(user: current_user, plant: @plants) %>
             <% favorite.each do |fav| %>
               <% if fav.plant_id == plant.id %>
-                <i class="fa-solid fa-heart fa-lg --fa-full-color mt-2"></i>
+                <i class="fa-solid fa-heart fa-lg mt-2 heart heart-list"></i>
               <% end %>
             <% end %>
           </div>
@@ -19,3 +19,4 @@
     <% end %>
   <% end %>
 </div>
+

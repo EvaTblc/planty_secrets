@@ -1,5 +1,5 @@
   <div class="favorite-research-container", data-favorite-search-target="list">
-      <% @favorites.each do |favorite| %>
+      <% @favorites.order(:id).each do |favorite| %>
         <div class="card favorite-card">
           <%= link_to plant_path(favorite.id) do %>
             <%= cl_image_tag favorite.photo.key, class: "favorite-img" %>
