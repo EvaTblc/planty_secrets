@@ -13,7 +13,7 @@
       <%= image_tag "flower-2-new-form.png", class:"photo-new", data: { loaders_target: "image", action:"submit->loaders#loading"} %>
       <div class="loader d-none" data-loaders-target="loader"></div>
       <div class="alert-message text-center" role="alert">
-        Afin d'optimiser votre recherche, prenez en photo votre Planty en gros plan !
+        Afin d'optimiser votre recherche, photographiez votre Planty de près!
       </div>
       <div class="container-form style-form-control">
         <div data-controller="uploads" class= "form-style">
@@ -28,7 +28,7 @@
                 }
               }
             %>
-            
+
             <p class="text-center" data-uploads-target="nomFichier"></p>
             <div class="form-actions mb-2 pt3 d-flex justify-content-center">
               <%= f.button :submit, "Rechercher",

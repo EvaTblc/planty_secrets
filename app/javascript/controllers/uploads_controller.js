@@ -12,7 +12,7 @@ export default class extends Controller {
     let labelVal = this.inputTarget.value;
 
     if ( this.inputTarget.value ) {
-      this.nomFichierTarget.innerHTML = "<div><p>1 Planty trouvée</p></div>";
+      this.nomFichierTarget.innerHTML = "<div><p>1 Planty détectée</p></div>";
     } else {
       this.nomFichierTarget.innerText = "";
     }
