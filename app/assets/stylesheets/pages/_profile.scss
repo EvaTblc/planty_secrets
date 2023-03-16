@@ -194,12 +194,7 @@ a {
   padding: 16px;
 }
 
-.taille {
-  width: 355px;
-  height: 60px;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-}
+
 
 .nom-scientifique {
   font-size: 15px;
@@ -255,9 +250,13 @@ a {
 }
 
 .list-group-item-fav {
-  list-style-type: none;
-  border: 0.5px solid $pale-gray;
   border-radius: 10px;
   box-shadow: 1px 1px 5px $pale-gray;
-  padding-top: 10px;
+  margin: 5px;
+}
+
+.list-group-fav {
+  margin: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
 }
